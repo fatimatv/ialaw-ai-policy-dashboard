@@ -96,6 +96,7 @@
       font-size: 13px;
     }
 
+
     .toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -549,13 +550,18 @@
 
     .bar-row {
       display: grid;
-      grid-template-columns: 112px minmax(0, 1fr) 40px;
+      grid-template-columns: minmax(190px, 270px) minmax(0, 1fr) 44px;
       align-items: center;
       gap: 10px;
       color: var(--muted);
       font-size: 13px;
     }
 
+    .principle-name {
+      color: var(--ialaw-gray-dark);
+      font-weight: 750;
+      line-height: 1.28;
+    }
     .bar {
       height: 12px;
       border: 1px solid var(--line);
@@ -620,6 +626,13 @@
         grid-template-columns: 1fr;
       }
 
+      .bar-row {
+        grid-template-columns: 1fr 44px;
+      }
+
+      .principle-name {
+        grid-column: 1 / -1;
+      }
       .toolbar {
         justify-content: flex-start;
       }
@@ -935,7 +948,7 @@
       box-shadow: 0 10px 28px rgba(1, 24, 191, .18);
     }
 
-    .toolbar {
+      .toolbar {
       gap: 12px;
     }
 
@@ -1170,6 +1183,13 @@
         position: static;
       }
 
+      .bar-row {
+        grid-template-columns: 1fr 44px;
+      }
+
+      .principle-name {
+        grid-column: 1 / -1;
+      }
       .toolbar {
         width: 100%;
       }
@@ -2012,8 +2032,8 @@
           const pct = Math.round(p.value / 3 * 100);
           return `
             <div class="bar-row">
-              <span>${p.short}</span>
-              <div class="bar"><span style="width:${pct}%"></span></div>
+              <span class="principle-name">${p.label}</span>
+              <div class="bar" aria-label="${p.label}: ${pct}%"><span style="width:${pct}%"></span></div>
               <strong>${pct}%</strong>
             </div>
           `;
