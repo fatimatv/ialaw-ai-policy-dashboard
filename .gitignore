@@ -1,0 +1,7 @@
+.vercel
+.DS_Store
+Thumbs.db
+*.pdf
+/ialaw-assets/
+dashboard-ialaw-politicas-ia.html
+
