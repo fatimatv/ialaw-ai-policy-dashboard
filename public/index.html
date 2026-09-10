@@ -1580,8 +1580,8 @@
             <div class="deadline-dashboard" aria-label="Plazos de implementación del DS 115-2025-PCM">
               <div class="deadline-kpi">
                 <span class="eyebrow">Primer tramo DS 115-2025-PCM</span>
-                <strong id="compliancePercent">1.4%</strong>
-                <p><span id="complianceFraction">8 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
+                <strong id="compliancePercent">1.5%</strong>
+                <p><span id="complianceFraction">9 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
                 <div class="progress-track" aria-hidden="true"><span id="complianceBar"></span></div>
                 <p class="deadline-note">Conteo de cumplimiento: instituciones únicas con política revisada.</p>
               </div>
@@ -1800,6 +1800,20 @@
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 2, copyright: 2, training: 3, sustainability: 2, governance: 3, inventory: 2 }
       },
       {
+        id: "midis",
+        name: "MIDIS",
+        longName: "Ministerio de Desarrollo e Inclusion Social",
+        sector: "Desarrollo e inclusion social",
+        instrument: "Resolucion Ministerial N. 248-2026-MIDIS",
+        approval: "2026-09-08",
+        publication: "2026-09-08",
+        focus: "Politica institucional orientada a gobernar sistemas de IA en programas, servicios e intervenciones sociales, con foco en poblaciones vulnerables.",
+        difference: "Destaca por exigir registro institucional, evaluacion y clasificacion de riesgos, supervision humana significativa, controles de datos y avance hacia un SGIA basado en NTP ISO/IEC 42001:2025.",
+        evidence: "Compromisos sobre derechos, inclusion social, sesgos algoritmicos, decisiones sobre beneficios ciudadanos, transparencia, trazabilidad, auditabilidad, datos, inventario, OIA, SGIA y capacitacion por responsabilidades.",
+        source: "https://www.gob.pe/institucion/midis/normas-legales/8583281-248-2026-midis",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 2, governance: 3, inventory: 3 }
+      },
+      {
         id: "smv-policy",
         name: "SMV",
         longName: "Superintendencia del Mercado de Valores",
@@ -1828,7 +1842,7 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "smv-policy"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "midis", "smv-policy"]);
     const state = {
       selected: "smv-policy",
       dateMode: "approval",
@@ -2010,6 +2024,9 @@
       const notes = {
         "indecopi.inventory": "OTI/ETIA e Inventario IA",
         "onp.inventory": "SGIA + evaluaciones de impacto",
+        "midis.inventory": "Inventario + OIA + SGIA",
+        "midis.human": "Supervision significativa",
+        "midis.bias": "Sesgos en intervenciones sociales",
         "itp.bias": "No aparece como compromiso autonomo",
         "ceplan.governance": "Principios sin arquitectura operativa",
         "apci.governance": "Incluye gobernanza de internet",
