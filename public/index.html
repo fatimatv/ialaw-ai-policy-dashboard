@@ -1570,7 +1570,7 @@
           <div class="panel-head">
             <div>
               <h2>Linea de tiempo</h2>
-              <p>Secuencia de aprobacion de las politicas institucionales identificadas.</p>
+              <p>Secuencia de publicacion de las politicas institucionales identificadas.</p>
             </div>
           </div>
           <div class="panel-body">
@@ -1845,7 +1845,7 @@
     const compliantPolicyInstitutionIds = new Set(["indecopi", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "midis", "smv-policy"]);
     const state = {
       selected: "smv-policy",
-      dateMode: "approval",
+      dateMode: "publication",
       sector: "all",
       search: "",
       principle: "all",
@@ -1896,13 +1896,13 @@
 
     function renderSummary(data) {
       const scores = data.flatMap((inst) => principles.map((p) => inst.scores[p.key]));
-      const first = institutions.reduce((a, b) => a.approval < b.approval ? a : b);
-      const latest = institutions.reduce((a, b) => a.approval > b.approval ? a : b);
+      const first = institutions.reduce((a, b) => a.publication < b.publication ? a : b);
+      const latest = institutions.reduce((a, b) => a.publication > b.publication ? a : b);
       document.querySelector("#summary").innerHTML = [
         ["Instituciones", data.length, "documentos visibles segun filtros"],
         ["Cobertura media", `${Math.round(avg(scores) / 3 * 100)}%`, "principios explicitados o parcialmente cubiertos"],
-        ["Primera aprobacion", first.name, formatDate(first.approval)],
-        ["Mas reciente", latest.name, formatDate(latest.approval)]
+        ["Primera publicacion", first.name, formatDate(first.publication)],
+        ["Mas reciente", latest.name, formatDate(latest.publication)]
       ].map(([label, value, note]) => `
         <div class="metric">
           <span>${label}</span>
@@ -1955,7 +1955,7 @@
           <button class="item ${inst.id === state.selected ? "active" : ""}" type="button" data-id="${inst.id}">
             <strong>${inst.name}</strong>
             <span>${inst.sector}</span>
-            <span>${formatDate(inst.approval)}</span>
+            <span>${formatDate(inst.publication)}</span>
           </button>
         `).join("");
       list.querySelectorAll("button").forEach((button) => {
@@ -1977,7 +1977,7 @@
         <p class="sub">${selected.longName}</p>
         <div class="tags">
           <span class="tag">${selected.sector}</span>
-          <span class="tag">${formatDate(selected.approval)}</span>
+          <span class="tag">${formatDate(selected.publication)}</span>
           <span class="tag">${score}% cobertura</span>
         </div>
         <p><strong>Instrumento:</strong> ${selected.instrument}</p>
@@ -2183,7 +2183,7 @@
     }
     function renderSources() {
       document.querySelector("#sources").innerHTML = institutions.map((inst) => `
-        <li><strong>${inst.name}.</strong> ${inst.instrument}. Fecha base: ${formatDate(inst.approval)}. ${
+        <li><strong>${inst.name}.</strong> ${inst.instrument}. Fecha de publicacion: ${formatDate(inst.publication)}. ${
           inst.source.startsWith("http") ? `<a href="${inst.source}" target="_blank" rel="noreferrer">Fuente oficial</a>` : inst.source
         }</li>
       `).join("");
