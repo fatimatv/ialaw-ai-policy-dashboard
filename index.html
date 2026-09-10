@@ -1199,6 +1199,125 @@
         min-height: 112px;
       }
     }
+  
+    /* DS 115-2025-PCM compliance layer: fills timeline whitespace with regulatory context. */
+    .deadline-dashboard {
+      display: grid;
+      grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+      gap: 14px;
+      margin-top: 18px;
+      align-items: stretch;
+    }
+
+    .deadline-kpi,
+    .deadline-table-card {
+      border: 2px solid rgba(1, 30, 244, .18);
+      border-radius: 14px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .deadline-kpi {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      padding: 16px;
+      border-top: 10px solid var(--ialaw-yellow);
+    }
+
+    .deadline-kpi .eyebrow,
+    .deadline-table-card .eyebrow {
+      color: var(--ialaw-gray-dark);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .deadline-kpi strong {
+      color: var(--ialaw-blue);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1;
+    }
+
+    .deadline-kpi p {
+      margin: 0;
+      color: var(--ialaw-gray-dark);
+      font-size: 13px;
+      line-height: 1.42;
+      font-weight: 600;
+    }
+
+    .progress-track {
+      height: 14px;
+      border-radius: 999px;
+      background: #e8ebff;
+      overflow: hidden;
+      border: 1px solid rgba(1, 30, 244, .16);
+    }
+
+    .progress-track span {
+      display: block;
+      height: 100%;
+      width: var(--progress, 0%);
+      min-width: 3px;
+      background: var(--ialaw-yellow);
+    }
+
+    .deadline-table-card {
+      padding: 14px;
+    }
+
+    .deadline-table {
+      min-width: 0;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .deadline-table th,
+    .deadline-table td {
+      position: static;
+      padding: 9px 10px;
+      border-color: rgba(111, 112, 114, .22);
+    }
+
+    .deadline-table th {
+      background: #eef1ff;
+      color: var(--ialaw-blue);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .deadline-table td:first-child,
+    .deadline-table th:first-child {
+      position: static;
+      min-width: 0;
+      background: transparent;
+      color: inherit;
+      font-weight: 700;
+    }
+
+    .deadline-table td:last-child {
+      color: var(--ialaw-blue);
+      font-weight: 800;
+    }
+
+    .deadline-table .current-deadline td {
+      background: #fff8d6;
+    }
+
+    .deadline-note {
+      margin: 10px 0 0;
+      color: var(--ialaw-gray);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1180px) {
+      .deadline-dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1241,6 +1360,20 @@
           <div class="panel-body">
             <div class="timeline" id="timeline">
               <div class="axis"></div>
+            </div>
+            <div class="deadline-dashboard" aria-label="Plazos de implementación del DS 115-2025-PCM">
+              <div class="deadline-kpi">
+                <span class="eyebrow">Primer tramo DS 115-2025-PCM</span>
+                <strong id="compliancePercent">1.4%</strong>
+                <p><span id="complianceFraction">8 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
+                <div class="progress-track" aria-hidden="true"><span id="complianceBar"></span></div>
+                <p class="deadline-note">Conteo de cumplimiento: instituciones únicas con política revisada. La resolución de OIA de SMV se trata como documento complementario, no como una política adicional.</p>
+              </div>
+              <div class="deadline-table-card">
+                <span class="eyebrow">Fechas límite de implementación</span>
+                <table class="deadline-table" id="deadlineTable"></table>
+                <p class="deadline-note">Base de cálculo incorporada desde el cuadro proporcionado por la usuaria. Para el porcentaje se usa el universo informado de 581 entidades del primer tramo.</p>
+              </div>
             </div>
           </div>
         </article>
@@ -1469,6 +1602,19 @@
       }
     ];
 
+
+    const publicSectorDeadlines = [
+      { entity: "Poder Ejecutivo, Legislativo y Judicial", term: "1 año", deadline: "10 de setiembre de 2026", current: true },
+      { entity: "Organismos Constitucionales Autónomos", term: "1 año", deadline: "10 de setiembre de 2026", current: true },
+      { entity: "EsSalud, gobiernos regionales y universidades públicas", term: "2 años", deadline: "10 de setiembre de 2027" },
+      { entity: "Empresas públicas regionales/locales o FONAFE", term: "2 años", deadline: "10 de setiembre de 2027" },
+      { entity: "Demás entidades de los numerales 7 y 8 del art. I del TUO Ley 27444", term: "2 años", deadline: "10 de setiembre de 2027" },
+      { entity: "Gobiernos locales Tipo A, B y C", term: "3 años", deadline: "10 de setiembre de 2028" },
+      { entity: "Gobiernos locales Tipo D, E, F y G", term: "Facultativo", deadline: "Sin plazo fijo" }
+    ];
+
+    const firstWaveUniverse = 581;
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "smv-policy"]);
     const state = {
       selected: "smv-policy",
       dateMode: "approval",
@@ -1781,6 +1927,30 @@
       `).join("");
     }
 
+
+    function renderComplianceContext() {
+      const compliant = compliantPolicyInstitutionIds.size;
+      const pct = compliant / firstWaveUniverse * 100;
+      const rounded = pct.toFixed(1);
+      const percentEl = document.querySelector("#compliancePercent");
+      const fractionEl = document.querySelector("#complianceFraction");
+      const barEl = document.querySelector("#complianceBar");
+      const tableEl = document.querySelector("#deadlineTable");
+      if (!percentEl || !fractionEl || !barEl || !tableEl) return;
+      percentEl.textContent = `${rounded}%`;
+      fractionEl.textContent = `${compliant} de ${firstWaveUniverse}`;
+      barEl.style.setProperty("--progress", `${Math.max(pct, .6)}%`);
+      tableEl.innerHTML = `
+        <tr><th>Entidad</th><th>Plazo</th><th>Fecha límite</th></tr>
+        ${publicSectorDeadlines.map((row) => `
+          <tr class="${row.current ? "current-deadline" : ""}">
+            <td>${row.entity}</td>
+            <td>${row.term}</td>
+            <td>${row.deadline}</td>
+          </tr>
+        `).join("")}
+      `;
+    }
     function renderSources() {
       document.querySelector("#sources").innerHTML = institutions.map((inst) => `
         <li><strong>${inst.name}.</strong> ${inst.instrument}. Fecha base: ${formatDate(inst.approval)}. ${
@@ -1793,6 +1963,7 @@
       const data = filteredInstitutions();
       renderSummary(data);
       renderTimeline(data);
+      renderComplianceContext();
       renderInstitutionList(data);
       renderInstitutionDetail(data);
       renderMatrix(data);
@@ -1840,6 +2011,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 
