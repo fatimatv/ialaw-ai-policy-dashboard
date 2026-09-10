@@ -972,6 +972,21 @@
       font-weight: 750;
     }
 
+    .share-button {
+      min-height: 44px;
+      border: 2px solid var(--white);
+      border-radius: 999px;
+      padding: 8px 16px;
+      background: var(--ialaw-yellow);
+      color: var(--ialaw-blue);
+      font-weight: 850;
+    }
+
+    .share-button:hover {
+      background: var(--white);
+      text-decoration: none;
+    }
+
     .hero {
       isolation: isolate;
       display: grid;
@@ -1313,9 +1328,57 @@
       line-height: 1.4;
     }
 
+    .site-footer {
+      margin: 24px -18px -40px;
+      padding: 28px clamp(24px, 4vw, 58px);
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+      gap: 28px;
+      align-items: center;
+      background: var(--ialaw-blue);
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .footer-contact,
+    .footer-brand {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-contact p,
+    .footer-brand p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .footer-logo {
+      justify-self: center;
+      width: 92px;
+      height: auto;
+      background: var(--white);
+      border-radius: 4px;
+    }
+
+    .footer-brand {
+      justify-items: center;
+      text-align: center;
+      font-size: 15px;
+    }
+
     @media (max-width: 1180px) {
       .deadline-dashboard {
         grid-template-columns: 1fr;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-contact,
+      .footer-brand {
+        justify-items: center;
       }
     }
   
@@ -1469,10 +1532,7 @@
         <select id="sectorFilter" class="control" aria-label="Filtrar por sector">
           <option value="all">Todos los sectores</option>
         </select>
-        <div class="segmented" aria-label="Vista de fechas">
-          <button id="approvalBtn" class="active" type="button">Aprobacion</button>
-          <button id="publicationBtn" type="button">Publicacion</button>
-        </div>
+        <button id="shareBtn" class="share-button" type="button">Compartir</button>
       </div>
     </header>
 
@@ -1490,7 +1550,7 @@
           <div class="panel-head">
             <div>
               <h2>Linea de tiempo</h2>
-              <p>Fechas de aprobacion y, cuando estan disponibles, publicacion oficial.</p>
+              <p>Secuencia de aprobacion de las politicas institucionales identificadas.</p>
             </div>
           </div>
           <div class="panel-body">
@@ -1503,7 +1563,7 @@
                 <strong id="compliancePercent">1.4%</strong>
                 <p><span id="complianceFraction">8 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
                 <div class="progress-track" aria-hidden="true"><span id="complianceBar"></span></div>
-                <p class="deadline-note">Conteo de cumplimiento: instituciones únicas con política revisada. La resolución de OIA de SMV se trata como documento complementario, no como una política adicional.</p>
+                <p class="deadline-note">Conteo de cumplimiento: instituciones únicas con política revisada.</p>
               </div>
               <div class="deadline-table-card">
                 <span class="eyebrow">Fechas límite de implementación</span>
@@ -1590,6 +1650,18 @@
         </div>
       </section>
     </main>
+    <footer class="site-footer">
+      <div class="footer-contact">
+        <p>+51 1 3996491</p>
+        <p>contacto@iriartelaw.com</p>
+        <p>Enrique Palacios 360, Ofc. 612.<br>Miraflores</p>
+      </div>
+      <img class="footer-logo" src="/ialaw-assets/ialaw-vertical-white-bg.png" alt="IALAW" />
+      <div class="footer-brand">
+        <p>Iriarte &amp; Asociados, colectivo de abogados</p>
+        <p>© 2026 - Copyright</p>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -1718,22 +1790,9 @@
         focus: "Politica institucional con compromisos generales, gobernanza y uso de IA en procesos regulatorios o de supervision.",
         difference: "Menciona expresamente procesos regulatorios y de supervision, calidad de datos, trazabilidad y uso exclusivo de herramientas autorizadas.",
         evidence: "Compromisos de gobernanza institucional, supervision humana, privacidad, transparencia, riesgos, calidad de datos, rendicion de cuentas, autor y sostenibilidad.",
-        source: "PDF local: SMV - POL-GES-GAD-008 - Politica institucional de uso seguro responsable y etico de IA.pdf",
+        source: "https://www.gob.pe/institucion/smv/normas-legales/8580124-095-2026-smv-02",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
-      },
-      {
-        id: "smv-oia",
-        name: "SMV OIA",
-        longName: "Superintendencia del Mercado de Valores",
-        sector: "Mercado de valores",
-        instrument: "Resolucion de Superintendente N. 096-2026-SMV/02",
-        approval: "2026-09-08",
-        publication: "2026-09-08",
-        focus: "Designacion del Oficial de Inteligencia Artificial y definicion de funciones de gobierno, plan de accion y reporte.",
-        difference: "No es una politica de principios: complementa la politica de SMV con rol responsable, reportes trimestrales y Plataforma de Cumplimiento Digital.",
-        evidence: "Designa al OIA y le asigna coordinacion, plan de accion, evaluacion de modelos de alto riesgo, seguimiento y registro de avances.",
-        source: "PDF local: SMV - Resolucion de Superintendente 096-2026 - Designacion Oficial de IA.pdf",
-        scores: { rights: 1, privacy: 1, human: 1, transparency: 1, risk: 2, bias: 1, accountability: 3, copyright: 1, training: 1, sustainability: 1, governance: 3, inventory: 3 }
+
       }
     ];
 
@@ -1931,7 +1990,6 @@
       const notes = {
         "indecopi.inventory": "OTI/ETIA e Inventario IA",
         "onp.inventory": "SGIA + evaluaciones de impacto",
-        "smv-oia.inventory": "OIA, plan y reportes",
         "itp.bias": "No aparece como compromiso autonomo",
         "ceplan.governance": "Principios sin arquitectura operativa",
         "apci.governance": "Incluye gobernanza de internet",
@@ -2052,7 +2110,7 @@
         },
         {
           title: "Madurez operativa",
-          text: `Los documentos con controles mas identificables son: ${withControls || "ninguno en esta vista"}. Ahi aparecen inventarios, SGIA, OIA o aprobacion previa.`
+          text: `Los documentos con controles mas identificables son: ${withControls || "ninguno en esta vista"}. Ahi aparecen inventarios, SGIA o aprobacion previa.`
         }
       ].map((item) => `
         <div class="insight">
@@ -2127,18 +2185,26 @@
       render();
     });
 
-    document.querySelector("#approvalBtn").addEventListener("click", () => {
-      state.dateMode = "approval";
-      document.querySelector("#approvalBtn").classList.add("active");
-      document.querySelector("#publicationBtn").classList.remove("active");
-      render();
-    });
-
-    document.querySelector("#publicationBtn").addEventListener("click", () => {
-      state.dateMode = "publication";
-      document.querySelector("#publicationBtn").classList.add("active");
-      document.querySelector("#approvalBtn").classList.remove("active");
-      render();
+    document.querySelector("#shareBtn").addEventListener("click", async () => {
+      const button = document.querySelector("#shareBtn");
+      const shareData = {
+        title: "IALAW | Politicas institucionales de IA",
+        text: "Mapa comparado de politicas peruanas de IA responsable.",
+        url: window.location.href
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(shareData.url);
+        button.textContent = "Enlace copiado";
+      } catch (error) {
+        button.textContent = "No se pudo compartir";
+      }
+      window.setTimeout(() => {
+        button.textContent = "Compartir";
+      }, 1800);
     });
 
     renderFilters();
@@ -2146,15 +2212,4 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
