@@ -1318,6 +1318,142 @@
         grid-template-columns: 1fr;
       }
     }
+  
+    /* Layout refinement: give timeline more room and show full institution list without awkward internal void. */
+    main > .grid:first-child {
+      grid-template-columns: minmax(0, 1.28fr) minmax(460px, .72fr);
+      align-items: stretch;
+    }
+
+    main > .grid:first-child .panel:first-child {
+      min-width: 0;
+    }
+
+    main > .grid:first-child .panel:nth-child(2) {
+      min-width: 0;
+    }
+
+    main > .grid:first-child .panel:nth-child(2) .panel-body {
+      padding: 16px;
+    }
+
+    main > .grid:first-child .institution-layout {
+      grid-template-columns: minmax(172px, .48fr) minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    main > .grid:first-child .list {
+      max-height: none;
+      overflow: visible;
+      padding-right: 0;
+      gap: 8px;
+    }
+
+    main > .grid:first-child .item {
+      min-height: 64px;
+      padding: 10px 12px;
+      border-radius: 12px;
+    }
+
+    main > .grid:first-child .item strong {
+      font-size: 14px;
+      line-height: 1.15;
+    }
+
+    main > .grid:first-child .item span {
+      margin-top: 3px;
+      font-size: 11px;
+      line-height: 1.22;
+    }
+
+    main > .grid:first-child .detail {
+      min-height: 0;
+      padding: 18px;
+    }
+
+    main > .grid:first-child .detail h3 {
+      font-size: clamp(28px, 3.2vw, 48px);
+    }
+
+    main > .grid:first-child .detail .sub {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    main > .grid:first-child .detail p {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    main > .grid:first-child .detail .tags {
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    main > .grid:first-child .detail .tag {
+      min-height: 24px;
+      padding: 4px 8px;
+      font-size: 11px;
+    }
+
+    main > .grid:first-child .detail .split {
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    main > .grid:first-child .detail .note {
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    main > .grid:first-child .detail h4 {
+      margin: 8px 0 4px;
+      font-size: 13px;
+      color: var(--ialaw-blue);
+      text-transform: uppercase;
+    }
+
+    main > .grid:first-child .timeline {
+      min-height: 350px;
+    }
+
+    main > .grid:first-child .event {
+      width: 132px;
+    }
+
+    main > .grid:first-child .event button {
+      padding: 9px;
+    }
+
+    main > .grid:first-child .event b {
+      font-size: 13px;
+    }
+
+    main > .grid:first-child .event span {
+      font-size: 11px;
+    }
+
+    main > .grid:first-child .deadline-dashboard {
+      grid-template-columns: minmax(210px, .58fr) minmax(0, 1.42fr);
+    }
+
+    @media (max-width: 1280px) {
+      main > .grid:first-child {
+        grid-template-columns: 1fr;
+      }
+
+      main > .grid:first-child .institution-layout {
+        grid-template-columns: minmax(220px, .52fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      main > .grid:first-child .institution-layout,
+      main > .grid:first-child .deadline-dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2011,6 +2147,7 @@
   </script>
 </body>
 </html>
+
 
 
 
