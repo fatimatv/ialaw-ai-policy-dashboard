@@ -1580,8 +1580,8 @@
             <div class="deadline-dashboard" aria-label="Plazos de implementación del DS 115-2025-PCM">
               <div class="deadline-kpi">
                 <span class="eyebrow">Primer tramo DS 115-2025-PCM</span>
-                <strong id="compliancePercent">1.5%</strong>
-                <p><span id="complianceFraction">9 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
+                <strong id="compliancePercent">2.1%</strong>
+                <p><span id="complianceFraction">12 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
                 <div class="progress-track" aria-hidden="true"><span id="complianceBar"></span></div>
                 <p class="deadline-note">Conteo de cumplimiento: instituciones únicas con política revisada.</p>
               </div>
@@ -1730,6 +1730,20 @@
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 2, inventory: 1 }
       },
       {
+        id: "onpe",
+        name: "ONPE",
+        longName: "Oficina Nacional de Procesos Electorales",
+        sector: "Electoral",
+        instrument: "Resolucion Jefatural N. RJ-160-2025-JN",
+        approval: "2025-10-10",
+        publication: "2025-10-10",
+        focus: "Politica obligatoria para el uso de IA en gerencias, oficinas y organos desconcentrados, con foco en transparencia, equidad, inclusion y gobernanza de datos.",
+        difference: "Destaca por ordenar la elaboracion de lineamientos, protocolos y manuales operativos especificos, a cargo de Informatica y Tecnologia Electoral con Planeamiento y Asesoria Juridica.",
+        evidence: "Resolucion aprobatoria, obligatoriedad institucional, principios de transparencia, equidad, inclusion, gobernanza de datos, mitigacion de sesgos y responsabilidad institucional.",
+        source: "https://www.gob.pe/institucion/onpe/normas-legales/7279164-rj-160-2025-jn",
+        scores: { rights: 3, privacy: 2, human: 2, transparency: 3, risk: 2, bias: 3, accountability: 3, copyright: 1, training: 2, sustainability: 1, governance: 3, inventory: 1 }
+      },
+      {
         id: "onp",
         name: "ONP",
         longName: "Oficina de Normalizacion Previsional",
@@ -1800,6 +1814,34 @@
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 2, copyright: 2, training: 3, sustainability: 2, governance: 3, inventory: 2 }
       },
       {
+        id: "servir",
+        name: "SERVIR",
+        longName: "Autoridad Nacional del Servicio Civil",
+        sector: "Servicio civil",
+        instrument: "Resolucion de Presidencia Ejecutiva N. 000133-2026/PE",
+        approval: "2026-08-19",
+        publication: "2026-08-21",
+        focus: "Politica institucional para gobernar el ciclo de vida de sistemas basados en IA mediante un Sistema de Gestion de Inteligencia Artificial.",
+        difference: "Es fuerte en gestion: compromete implementar, operar y mejorar un SGIA, alinea recursos a instrumentos institucionales y toma como referencia NTP ISO/IEC 42001:2025 y controles de seguridad.",
+        evidence: "Compromisos sobre derechos, privacidad, no discriminacion, supervision humana, transparencia, rendicion de cuentas, sostenibilidad, capacitacion, SGIA y gestion basada en riesgos.",
+        source: "https://www.gob.pe/institucion/servir/normas-legales/8513507-000133-2026-pe",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
+      },
+      {
+        id: "sunarp",
+        name: "SUNARP",
+        longName: "Superintendencia Nacional de los Registros Publicos",
+        sector: "Registros publicos",
+        instrument: "Resolucion de la Superintendencia Nacional de los Registros Publicos N. 00191-2026-SUNARP/SN",
+        approval: "2026-09-02",
+        publication: "2026-09-04",
+        focus: "Politica institucional para el uso responsable, seguro y etico de IA en la funcion registral, la gestion institucional y los servicios de SUNARP.",
+        difference: "Es especialmente concreta porque conecta la politica con la Plataforma IA SUNARP JULIO y sus componentes para consulta de criterios, precedentes y resoluciones registrales.",
+        evidence: "Finalidad, alcance institucional, base legal, antecedentes de JULIO y principios de no discriminacion, privacidad, derechos fundamentales, autor, seguridad, supervision humana, transparencia y rendicion de cuentas.",
+        source: "https://www.gob.pe/institucion/sunarp/normas-legales/8563063-00191-2026-sunarp-sn",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 2, sustainability: 2, governance: 3, inventory: 2 }
+      },
+      {
         id: "midis",
         name: "MIDIS",
         longName: "Ministerio de Desarrollo e Inclusion Social",
@@ -1842,9 +1884,9 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "midis", "smv-policy"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "midis", "smv-policy"]);
     const state = {
-      selected: "smv-policy",
+      selected: "midis",
       dateMode: "publication",
       sector: "all",
       search: "",
@@ -2024,6 +2066,12 @@
       const notes = {
         "indecopi.inventory": "OTI/ETIA e Inventario IA",
         "onp.inventory": "SGIA + evaluaciones de impacto",
+        "onpe.governance": "Protocolos y manuales operativos",
+        "onpe.bias": "Equidad, inclusion y sesgos",
+        "servir.governance": "SGIA + NTP ISO/IEC 42001",
+        "servir.sustainability": "Sostenibilidad integral",
+        "sunarp.inventory": "Plataforma IA SUNARP JULIO",
+        "sunarp.governance": "Politica vinculada a JULIO",
         "midis.inventory": "Inventario + OIA + SGIA",
         "midis.human": "Supervision significativa",
         "midis.bias": "Sesgos en intervenciones sociales",
