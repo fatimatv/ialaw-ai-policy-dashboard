@@ -1580,8 +1580,8 @@
             <div class="deadline-dashboard" aria-label="Plazos de implementación del DS 115-2025-PCM">
               <div class="deadline-kpi">
                 <span class="eyebrow">Primer tramo DS 115-2025-PCM</span>
-                <strong id="compliancePercent">2.1%</strong>
-                <p><span id="complianceFraction">12 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
+                <strong id="compliancePercent">2.6%</strong>
+                <p><span id="complianceFraction">15 de 581</span> entidades con política identificada para el universo con fecha límite 10 de setiembre de 2026.</p>
                 <div class="progress-track" aria-hidden="true"><span id="complianceBar"></span></div>
                 <p class="deadline-note">Conteo de cumplimiento: instituciones únicas con política revisada.</p>
               </div>
@@ -1869,6 +1869,48 @@
         source: "https://www.gob.pe/institucion/smv/normas-legales/8580124-095-2026-smv-02",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
 
+      },
+      {
+        id: "ositran",
+        name: "OSITRAN",
+        longName: "Organismo Supervisor de la Inversion en Infraestructura de Transporte de Uso Publico",
+        sector: "Infraestructura de transporte",
+        instrument: "Resolucion de Presidencia N. 038-2026-PD-OSITRAN",
+        approval: "2026-09-07",
+        publication: "2026-09-07",
+        focus: "Politica de compromisos para el uso seguro, responsable y etico de sistemas y herramientas basados en IA en servicios digitales y procesos institucionales.",
+        difference: "Vincula la gestion de riesgos de IA con el Sistema de Gestion Integral de Riesgos del Ositran y enfatiza que la IA apoya, pero no sustituye, el juicio profesional de los servidores.",
+        evidence: "Compromisos sobre derechos fundamentales, no discriminacion, transparencia, supervision humana, rendicion de cuentas, gestion integral de riesgos, datos personales, autor, capacitacion y cultura institucional.",
+        source: "https://www.gob.pe/institucion/ositran/normas-legales/8578171-038-2026-pd-ositran",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 2, inventory: 1 }
+      },
+      {
+        id: "oece",
+        name: "OECE",
+        longName: "Organismo Especializado para las Contrataciones Publicas Eficientes",
+        sector: "Contrataciones publicas",
+        instrument: "Resolucion de Presidencia Ejecutiva N. 282-2026-OECE/PRE",
+        approval: "2026-09-10",
+        publication: "2026-09-10",
+        focus: "Politica institucional para disenar, desarrollar, adquirir, implementar y usar IA en contrataciones publicas eficientes, con criterios de valor publico, integridad y mejora continua.",
+        difference: "Destaca por su arquitectura de gobernanza: el Comite de Gobierno y Transformacion Digital lidera proyectos estrategicos de IA articulando seguridad digital, gobierno de datos, datos personales y unidades competentes.",
+        evidence: "Principios de riesgos, pluralidad, gobernanza de internet, sociedad digital, etica, privacidad, no discriminacion, derechos, autor, sensibilizacion, sostenibilidad, supervision humana, transparencia y rendicion de cuentas.",
+        source: "https://www.gob.pe/institucion/oece/normas-legales/8587001-282-2026-oece-pre",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 1 }
+      },
+      {
+        id: "inacal",
+        name: "INACAL",
+        longName: "Instituto Nacional de Calidad",
+        sector: "Calidad y acreditacion",
+        instrument: "Resolucion de Presidencia Ejecutiva N. 085-2026-INACAL/PE",
+        approval: "2026-09-10",
+        publication: "2026-09-10",
+        focus: "Politica institucional para el uso seguro, responsable y etico de sistemas basados en IA, integrada al Sistema de Gestion de Inteligencia Artificial del INACAL.",
+        difference: "Es una de las mas tecnicas: compromete cumplimiento de NTP-ISO/IEC 42001:2025, gobernanza con roles y autoridades, y gestion de riesgos alineada a NTP-ISO/IEC 23894 y NTP-ISO/IEC 38507.",
+        evidence: "Alcance a personas y terceros, SGIA, roles, responsabilidades, supervision, ciclo de vida, principios de no discriminacion, privacidad, derechos, autor, seguridad, capacitacion, sostenibilidad, transparencia y rendicion de cuentas.",
+        source: "https://www.gob.pe/institucion/inacal/normas-legales/8588046-085-2026-inacal-pe",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
       }
     ];
 
@@ -1884,9 +1926,9 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "midis", "smv-policy"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal"]);
     const state = {
-      selected: "midis",
+      selected: "oece",
       dateMode: "publication",
       sector: "all",
       search: "",
@@ -2067,6 +2109,12 @@
         "indecopi.inventory": "OTI/ETIA e Inventario IA",
         "onp.inventory": "SGIA + evaluaciones de impacto",
         "onpe.governance": "Protocolos y manuales operativos",
+        "ositran.risk": "Conecta con SGIR institucional",
+        "ositran.human": "Apoyo, no sustitucion del juicio",
+        "oece.governance": "CGTD lidera proyectos estrategicos",
+        "oece.transparency": "Comprensible segun riesgo",
+        "inacal.governance": "SGIA + roles + autoridad",
+        "inacal.risk": "NTP-ISO/IEC 23894",
         "onpe.bias": "Equidad, inclusion y sesgos",
         "servir.governance": "SGIA + NTP ISO/IEC 42001",
         "servir.sustainability": "Sostenibilidad integral",
