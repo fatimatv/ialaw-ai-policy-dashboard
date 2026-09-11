@@ -282,6 +282,58 @@
 
     .axis::before { left: 0; }
     .axis::after { right: 0; }
+    .timeline.summary {
+      min-height: 235px;
+      padding: 8px 34px 22px;
+    }
+
+    .timeline.summary .axis {
+      top: 112px;
+      left: 36px;
+      right: 36px;
+    }
+
+    .timeline.summary .event {
+      width: 112px;
+    }
+
+    .timeline.summary .event.marker {
+      width: 28px;
+    }
+
+    .timeline.summary .event.marker button {
+      position: absolute;
+      left: 50%;
+      top: 102px;
+      width: 18px;
+      height: 18px;
+      min-height: 18px;
+      padding: 0;
+      border: 3px solid var(--ialaw-yellow);
+      border-radius: 999px;
+      background: var(--ialaw-blue);
+      box-shadow: none;
+      transform: translateX(-50%);
+      overflow: hidden;
+      text-indent: -999px;
+    }
+
+    .timeline.summary .event.marker button.active {
+      width: 22px;
+      height: 22px;
+      top: 100px;
+      background: var(--ialaw-yellow);
+      border-color: var(--ialaw-blue);
+    }
+
+    .timeline.summary .event.marker .dot {
+      display: none;
+    }
+
+    .timeline.summary .event.top { top: 26px; }
+    .timeline.summary .event.top .dot { top: 88px; }
+    .timeline.summary .event.bottom { top: 130px; }
+    .timeline.summary .event.bottom .dot { top: -24px; }
 
     .event {
       position: absolute;
@@ -1488,7 +1540,7 @@
     }
 
     main > .grid:first-child .timeline {
-      min-height: 330px;
+      min-height: 235px;
     }
 
     main > .grid:first-child .event {
@@ -1648,7 +1700,7 @@
           </div>
           <div class="panel-body">
             <div class="timeline-scroll" aria-label="Linea de tiempo">
-              <div class="timeline" id="timeline">
+              <div class="timeline summary" id="timeline">
                 <div class="axis"></div>
               </div>
             </div>
@@ -2082,11 +2134,11 @@
     }
 
     function renderTimeline(data) {
-      renderTimelineInto(document.querySelector("#timeline"), data);
-      renderTimelineInto(document.querySelector("#timelineModal"), data);
+      renderTimelineInto(document.querySelector("#timeline"), data, true);
+      renderTimelineInto(document.querySelector("#timelineModal"), data, false);
     }
 
-    function renderTimelineInto(timeline, data) {
+    function renderTimelineInto(timeline, data, summary = false) {
       if (!timeline) return;
       timeline.querySelectorAll(".event").forEach((el) => el.remove());
       const sorted = data
@@ -2096,20 +2148,26 @@
       const min = Math.min(...dates);
       const max = Math.max(...dates);
       const span = max - min || 1;
+      const selectedIndex = sorted.findIndex((inst) => inst.id === state.selected);
+      const keyIndexes = new Set([0, sorted.length - 1, selectedIndex].filter((index) => index >= 0));
 
       sorted.forEach((inst, index) => {
         const value = new Date(`${inst[state.dateMode]}T00:00:00`).getTime();
         const pct = 5 + ((value - min) / span) * 90;
+        const isKey = !summary || keyIndexes.has(index);
         const div = document.createElement("div");
-        div.className = `event ${index % 2 === 0 ? "top" : "bottom"}`;
+        div.className = `event ${index % 2 === 0 ? "top" : "bottom"}${isKey ? "" : " marker"}`;
         div.style.left = `${pct}%`;
         div.style.setProperty("--mobile-top", `${42 + index * 74}px`);
-        div.innerHTML = `
+        div.innerHTML = isKey ? `
           <button type="button" class="${inst.id === state.selected ? "active" : ""}" aria-label="Ver ${inst.name}">
             <b>${inst.name}</b>
             <span>${formatDate(inst[state.dateMode])}</span>
             <span>${monthLabel(inst[state.dateMode])}</span>
           </button>
+          <i class="dot" aria-hidden="true"></i>
+        ` : `
+          <button type="button" class="${inst.id === state.selected ? "active" : ""}" aria-label="Ver ${inst.name}">${inst.name}</button>
           <i class="dot" aria-hidden="true"></i>
         `;
         div.querySelector("button").addEventListener("click", () => {
