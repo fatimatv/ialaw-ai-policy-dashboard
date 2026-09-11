@@ -325,7 +325,6 @@
       color: var(--muted);
       font-size: 12px;
     }
-
     .institution-layout {
       display: grid;
       grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr);
@@ -1105,7 +1104,6 @@
     .panel-body {
       padding: 20px;
     }
-
     .institution-layout {
       grid-template-columns: minmax(240px, .68fr) minmax(0, 1.32fr);
     }
@@ -1402,9 +1400,117 @@
       }
     }
   
-    /* Layout refinement: give timeline more room and show full institution list without awkward internal void. */
+
+    .timeline-action {
+      min-height: 36px;
+      border: 2px solid var(--ialaw-blue);
+      border-radius: 999px;
+      padding: 6px 14px;
+      background: var(--ialaw-blue);
+      color: var(--white);
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .timeline-action:hover,
+    .timeline-action:focus-visible {
+      background: var(--ialaw-yellow);
+      color: var(--ialaw-blue);
+      outline: none;
+    }
+
+    .timeline.compact {
+      min-height: 128px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 6px 4px 12px;
+      scroll-snap-type: x proximity;
+    }
+
+    .timeline.compact .axis {
+      display: none;
+    }
+
+    .timeline.compact .event,
+    .timeline.compact .event.top,
+    .timeline.compact .event.bottom {
+      position: static;
+      width: 104px;
+      min-width: 104px;
+      transform: none;
+      scroll-snap-align: start;
+    }
+
+    .timeline.compact .event .dot {
+      display: none;
+    }
+
+    .timeline.compact .event button {
+      min-height: 98px;
+      padding: 9px 8px;
+      box-shadow: none;
+      border-width: 2px;
+    }
+
+    .timeline.compact .event b {
+      font-size: 12px;
+      line-height: 1.15;
+    }
+
+    .timeline.compact .event span {
+      font-size: 10px;
+      line-height: 1.2;
+    }
+
+    .timeline-dialog {
+      width: min(1120px, calc(100vw - 32px));
+      max-height: min(760px, calc(100vh - 32px));
+      border: 2px solid rgba(1, 30, 244, .28);
+      border-radius: 18px;
+      padding: 0;
+      background: var(--panel);
+      box-shadow: 0 24px 64px rgba(1, 30, 244, .24);
+    }
+
+    .timeline-dialog::backdrop {
+      background: rgba(17, 21, 28, .42);
+      backdrop-filter: blur(2px);
+    }
+
+    .timeline-dialog .panel-head {
+      align-items: center;
+      background: var(--ialaw-blue);
+      color: var(--white);
+    }
+
+    .timeline-dialog h2,
+    .timeline-dialog .panel-head p {
+      color: var(--white);
+    }
+
+    .timeline-dialog .panel-body {
+      overflow-x: auto;
+      padding: 18px 22px 24px;
+    }
+
+    .timeline-dialog .timeline {
+      min-width: 980px;
+      min-height: 390px;
+    }
+
+    .dialog-close {
+      min-height: 36px;
+      border: 2px solid var(--white);
+      border-radius: 999px;
+      padding: 6px 14px;
+      background: var(--white);
+      color: var(--ialaw-blue);
+      font-weight: 850;
+    }
+    /* Layout refinement: compact timeline preserves room for institutional detail. */
     main > .grid:first-child {
-      grid-template-columns: minmax(0, 1.28fr) minmax(460px, .72fr);
+      grid-template-columns: minmax(340px, .74fr) minmax(620px, 1.26fr);
       align-items: stretch;
     }
 
@@ -1498,7 +1604,7 @@
     }
 
     main > .grid:first-child .timeline {
-      min-height: 350px;
+      min-height: 128px;
     }
 
     main > .grid:first-child .event {
@@ -1570,11 +1676,12 @@
           <div class="panel-head">
             <div>
               <h2>Linea de tiempo</h2>
-              <p>Secuencia de publicacion de las politicas institucionales identificadas.</p>
+              <p>Secuencia compacta de publicacion. Abre el detalle para ver la escala completa.</p>
             </div>
+            <button class="timeline-action" id="openTimelineModal" type="button">Ampliar</button>
           </div>
           <div class="panel-body">
-            <div class="timeline" id="timeline">
+            <div class="timeline compact" id="timeline">
               <div class="axis"></div>
             </div>
             <div class="deadline-dashboard" aria-label="Plazos de implementación del DS 115-2025-PCM">
@@ -1593,7 +1700,6 @@
             </div>
           </div>
         </article>
-
         <article class="panel">
           <div class="panel-head">
             <div>
@@ -1607,7 +1713,20 @@
           </div>
         </article>
       </section>
-
+        <dialog class="timeline-dialog" id="timelineDialog" aria-labelledby="timelineDialogTitle">
+          <div class="panel-head">
+            <div>
+              <h2 id="timelineDialogTitle">Linea de tiempo completa</h2>
+              <p>Publicacion de politicas institucionales identificadas.</p>
+            </div>
+            <button class="dialog-close" id="closeTimelineModal" type="button">Cerrar</button>
+          </div>
+          <div class="panel-body">
+            <div class="timeline" id="timelineModal">
+              <div class="axis"></div>
+            </div>
+          </div>
+        </dialog>
       <section class="panel" style="margin-top:18px">
         <div class="panel-head">
           <div>
@@ -1646,7 +1765,6 @@
             <div class="bar-list" id="bars"></div>
           </div>
         </article>
-
         <article class="panel">
           <div class="panel-head">
             <div>
@@ -1657,7 +1775,6 @@
           <div class="panel-body insights" id="insights"></div>
         </article>
       </section>
-
       <section class="panel" style="margin-top:18px">
         <div class="panel-head">
           <div>
@@ -1997,37 +2114,42 @@
     }
 
     function renderTimeline(data) {
-      const timeline = document.querySelector("#timeline");
+      renderTimelineInto(document.querySelector("#timeline"), data, true);
+      renderTimelineInto(document.querySelector("#timelineModal"), data, false);
+    }
+
+    function renderTimelineInto(timeline, data, compact = false) {
+      if (!timeline) return;
       timeline.querySelectorAll(".event").forEach((el) => el.remove());
-      const dates = data.map((inst) => new Date(`${inst[state.dateMode]}T00:00:00`).getTime());
+      const sorted = data
+        .slice()
+        .sort((a, b) => a[state.dateMode].localeCompare(b[state.dateMode]) || a.name.localeCompare(b.name));
+      const dates = sorted.map((inst) => new Date(`${inst[state.dateMode]}T00:00:00`).getTime());
       const min = Math.min(...dates);
       const max = Math.max(...dates);
       const span = max - min || 1;
 
-      data
-        .slice()
-        .sort((a, b) => a[state.dateMode].localeCompare(b[state.dateMode]) || a.name.localeCompare(b.name))
-        .forEach((inst, index) => {
-          const value = new Date(`${inst[state.dateMode]}T00:00:00`).getTime();
-          const pct = 5 + ((value - min) / span) * 90;
-          const div = document.createElement("div");
-          div.className = `event ${index % 2 === 0 ? "top" : "bottom"}`;
-          div.style.left = `${pct}%`;
-          div.style.setProperty("--mobile-top", `${42 + index * 74}px`);
-          div.innerHTML = `
-            <button type="button" class="${inst.id === state.selected ? "active" : ""}" aria-label="Ver ${inst.name}">
-              <b>${inst.name}</b>
-              <span>${formatDate(inst[state.dateMode])}</span>
-              <span>${monthLabel(inst[state.dateMode])}</span>
-            </button>
-            <i class="dot" aria-hidden="true"></i>
-          `;
-          div.querySelector("button").addEventListener("click", () => {
-            state.selected = inst.id;
-            render();
-          });
-          timeline.appendChild(div);
+      sorted.forEach((inst, index) => {
+        const value = new Date(`${inst[state.dateMode]}T00:00:00`).getTime();
+        const pct = compact ? 0 : 5 + ((value - min) / span) * 90;
+        const div = document.createElement("div");
+        div.className = `event ${index % 2 === 0 ? "top" : "bottom"}`;
+        if (!compact) div.style.left = `${pct}%`;
+        div.style.setProperty("--mobile-top", `${42 + index * 74}px`);
+        div.innerHTML = `
+          <button type="button" class="${inst.id === state.selected ? "active" : ""}" aria-label="Ver ${inst.name}">
+            <b>${inst.name}</b>
+            <span>${formatDate(inst[state.dateMode])}</span>
+            <span>${monthLabel(inst[state.dateMode])}</span>
+          </button>
+          <i class="dot" aria-hidden="true"></i>
+        `;
+        div.querySelector("button").addEventListener("click", () => {
+          state.selected = inst.id;
+          render();
         });
+        timeline.appendChild(div);
+      });
     }
 
     function renderInstitutionList(data) {
@@ -2318,6 +2440,17 @@
       render();
     });
 
+
+    const timelineDialog = document.querySelector("#timelineDialog");
+    document.querySelector("#openTimelineModal")?.addEventListener("click", () => {
+      if (timelineDialog?.showModal) timelineDialog.showModal();
+    });
+    document.querySelector("#closeTimelineModal")?.addEventListener("click", () => {
+      timelineDialog?.close();
+    });
+    timelineDialog?.addEventListener("click", (event) => {
+      if (event.target === timelineDialog) timelineDialog.close();
+    });
     document.querySelector("#shareBtn").addEventListener("click", async () => {
       const button = document.querySelector("#shareBtn");
       const shareData = {
