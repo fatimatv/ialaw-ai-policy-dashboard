@@ -248,29 +248,11 @@
 
 
     .timeline-scroll {
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 0 0 14px;
-      scrollbar-color: var(--ialaw-blue) rgba(1, 30, 244, .10);
-      scrollbar-width: thin;
-    }
-
-    .timeline-scroll::-webkit-scrollbar {
-      height: 10px;
-    }
-
-    .timeline-scroll::-webkit-scrollbar-track {
-      background: rgba(1, 30, 244, .10);
-      border-radius: 999px;
-    }
-
-    .timeline-scroll::-webkit-scrollbar-thumb {
-      background: var(--ialaw-blue);
-      border-radius: 999px;
-    }
-
-    .timeline-scroll .timeline {
-      min-width: 1680px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow: hidden;
+      padding: 0;
     }
     .timeline {
       position: relative;
@@ -1477,7 +1459,8 @@
     }
 
     .timeline-dialog .timeline {
-      min-width: 980px;
+      width: 1680px;
+      min-width: 1680px;
       min-height: 390px;
     }
 
@@ -1664,7 +1647,7 @@
             <button class="timeline-action" id="openTimelineModal" type="button">Ver ampliada</button>
           </div>
           <div class="panel-body">
-            <div class="timeline-scroll" aria-label="Linea de tiempo desplazable" tabindex="0">
+            <div class="timeline-scroll" aria-label="Linea de tiempo">
               <div class="timeline" id="timeline">
                 <div class="axis"></div>
               </div>
