@@ -1419,50 +1419,6 @@
       outline: none;
     }
 
-    .timeline.compact {
-      min-height: 128px;
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 6px 4px 12px;
-      scroll-snap-type: x proximity;
-    }
-
-    .timeline.compact .axis {
-      display: none;
-    }
-
-    .timeline.compact .event,
-    .timeline.compact .event.top,
-    .timeline.compact .event.bottom {
-      position: static;
-      width: 104px;
-      min-width: 104px;
-      transform: none;
-      scroll-snap-align: start;
-    }
-
-    .timeline.compact .event .dot {
-      display: none;
-    }
-
-    .timeline.compact .event button {
-      min-height: 98px;
-      padding: 9px 8px;
-      box-shadow: none;
-      border-width: 2px;
-    }
-
-    .timeline.compact .event b {
-      font-size: 12px;
-      line-height: 1.15;
-    }
-
-    .timeline.compact .event span {
-      font-size: 10px;
-      line-height: 1.2;
-    }
-
     .timeline-dialog {
       width: min(1120px, calc(100vw - 32px));
       max-height: min(760px, calc(100vh - 32px));
@@ -1508,17 +1464,13 @@
       color: var(--ialaw-blue);
       font-weight: 850;
     }
-    /* Layout refinement: compact timeline preserves room for institutional detail. */
+    /* Layout refinement: timeline spans full width; institution reading uses a compact selector below it. */
     main > .grid:first-child {
-      grid-template-columns: minmax(340px, .74fr) minmax(620px, 1.26fr);
-      align-items: stretch;
+      grid-template-columns: 1fr;
+      align-items: start;
     }
 
-    main > .grid:first-child .panel:first-child {
-      min-width: 0;
-    }
-
-    main > .grid:first-child .panel:nth-child(2) {
+    main > .grid:first-child .panel {
       min-width: 0;
     }
 
@@ -1526,34 +1478,73 @@
       padding: 16px;
     }
 
+    main > .grid:first-child .timeline {
+      min-height: 330px;
+    }
+
+    main > .grid:first-child .event {
+      width: 120px;
+    }
+
+    main > .grid:first-child .event button {
+      padding: 9px;
+    }
+
+    main > .grid:first-child .event b {
+      font-size: 13px;
+      line-height: 1.15;
+    }
+
+    main > .grid:first-child .event span {
+      font-size: 11px;
+      line-height: 1.2;
+    }
+
+    main > .grid:first-child .deadline-dashboard {
+      grid-template-columns: minmax(230px, .48fr) minmax(0, 1.52fr);
+    }
+
     main > .grid:first-child .institution-layout {
-      grid-template-columns: minmax(172px, .48fr) minmax(0, 1fr);
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 14px;
       align-items: start;
     }
 
     main > .grid:first-child .list {
+      display: block;
       max-height: none;
       overflow: visible;
       padding-right: 0;
-      gap: 8px;
     }
 
-    main > .grid:first-child .item {
-      min-height: 64px;
-      padding: 10px 12px;
-      border-radius: 12px;
+    .institution-picker {
+      display: grid;
+      gap: 6px;
     }
 
-    main > .grid:first-child .item strong {
-      font-size: 14px;
-      line-height: 1.15;
+    .institution-picker label {
+      color: var(--ialaw-blue);
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .02em;
     }
 
-    main > .grid:first-child .item span {
-      margin-top: 3px;
-      font-size: 11px;
-      line-height: 1.22;
+    .institution-picker select {
+      width: 100%;
+      min-height: 52px;
+      border: 2px solid rgba(1, 30, 244, .24);
+      border-radius: 14px;
+      padding: 10px 42px 10px 14px;
+      background: var(--white);
+      color: var(--ialaw-blue);
+      font-weight: 800;
+      box-shadow: inset 0 -4px 0 rgba(1, 30, 244, .04);
+    }
+
+    .institution-picker select:focus {
+      outline: 3px solid rgba(251, 187, 2, .38);
+      border-color: var(--ialaw-blue);
     }
 
     main > .grid:first-child .detail {
@@ -1562,7 +1553,7 @@
     }
 
     main > .grid:first-child .detail h3 {
-      font-size: clamp(28px, 3.2vw, 48px);
+      font-size: clamp(32px, 5vw, 64px);
     }
 
     main > .grid:first-child .detail .sub {
@@ -1601,40 +1592,6 @@
       font-size: 13px;
       color: var(--ialaw-blue);
       text-transform: uppercase;
-    }
-
-    main > .grid:first-child .timeline {
-      min-height: 128px;
-    }
-
-    main > .grid:first-child .event {
-      width: 132px;
-    }
-
-    main > .grid:first-child .event button {
-      padding: 9px;
-    }
-
-    main > .grid:first-child .event b {
-      font-size: 13px;
-    }
-
-    main > .grid:first-child .event span {
-      font-size: 11px;
-    }
-
-    main > .grid:first-child .deadline-dashboard {
-      grid-template-columns: minmax(210px, .58fr) minmax(0, 1.42fr);
-    }
-
-    @media (max-width: 1280px) {
-      main > .grid:first-child {
-        grid-template-columns: 1fr;
-      }
-
-      main > .grid:first-child .institution-layout {
-        grid-template-columns: minmax(220px, .52fr) minmax(0, 1fr);
-      }
     }
 
     @media (max-width: 760px) {
@@ -1676,12 +1633,12 @@
           <div class="panel-head">
             <div>
               <h2>Linea de tiempo</h2>
-              <p>Secuencia compacta de publicacion. Abre el detalle para ver la escala completa.</p>
+              <p>Secuencia de publicacion de las politicas institucionales identificadas.</p>
             </div>
-            <button class="timeline-action" id="openTimelineModal" type="button">Ampliar</button>
+            <button class="timeline-action" id="openTimelineModal" type="button">Ver ampliada</button>
           </div>
           <div class="panel-body">
-            <div class="timeline compact" id="timeline">
+            <div class="timeline" id="timeline">
               <div class="axis"></div>
             </div>
             <div class="deadline-dashboard" aria-label="Plazos de implementación del DS 115-2025-PCM">
@@ -2114,11 +2071,11 @@
     }
 
     function renderTimeline(data) {
-      renderTimelineInto(document.querySelector("#timeline"), data, true);
-      renderTimelineInto(document.querySelector("#timelineModal"), data, false);
+      renderTimelineInto(document.querySelector("#timeline"), data);
+      renderTimelineInto(document.querySelector("#timelineModal"), data);
     }
 
-    function renderTimelineInto(timeline, data, compact = false) {
+    function renderTimelineInto(timeline, data) {
       if (!timeline) return;
       timeline.querySelectorAll(".event").forEach((el) => el.remove());
       const sorted = data
@@ -2131,10 +2088,10 @@
 
       sorted.forEach((inst, index) => {
         const value = new Date(`${inst[state.dateMode]}T00:00:00`).getTime();
-        const pct = compact ? 0 : 5 + ((value - min) / span) * 90;
+        const pct = 5 + ((value - min) / span) * 90;
         const div = document.createElement("div");
         div.className = `event ${index % 2 === 0 ? "top" : "bottom"}`;
-        if (!compact) div.style.left = `${pct}%`;
+        div.style.left = `${pct}%`;
         div.style.setProperty("--mobile-top", `${42 + index * 74}px`);
         div.innerHTML = `
           <button type="button" class="${inst.id === state.selected ? "active" : ""}" aria-label="Ver ${inst.name}">
@@ -2154,21 +2111,20 @@
 
     function renderInstitutionList(data) {
       const list = document.querySelector("#institutionList");
-      list.innerHTML = data
+      const options = data
         .slice()
         .sort((a, b) => a.name.localeCompare(b.name))
-        .map((inst) => `
-          <button class="item ${inst.id === state.selected ? "active" : ""}" type="button" data-id="${inst.id}">
-            <strong>${inst.name}</strong>
-            <span>${inst.sector}</span>
-            <span>${formatDate(inst.publication)}</span>
-          </button>
-        `).join("");
-      list.querySelectorAll("button").forEach((button) => {
-        button.addEventListener("click", () => {
-          state.selected = button.dataset.id;
-          render();
-        });
+        .map((inst) => `<option value="${inst.id}" ${inst.id === state.selected ? "selected" : ""}>${inst.name} - ${inst.sector} - ${formatDate(inst.publication)}</option>`)
+        .join("");
+      list.innerHTML = `
+        <div class="institution-picker">
+          <label for="institutionSelect">Institucion</label>
+          <select id="institutionSelect" aria-label="Seleccionar institucion">${options}</select>
+        </div>
+      `;
+      list.querySelector("#institutionSelect")?.addEventListener("change", (event) => {
+        state.selected = event.target.value;
+        render();
       });
     }
 
