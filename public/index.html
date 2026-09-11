@@ -1655,6 +1655,88 @@
       text-transform: uppercase;
     }
 
+    /* Containment pass: keep the page inside the viewport; only dense widgets scroll. */
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .shell,
+    .topbar,
+    main,
+    .grid,
+    .panel,
+    .panel-head,
+    .panel-body,
+    .institution-layout,
+    .deadline-dashboard,
+    .deadline-table-card,
+    .detail,
+    .split,
+    .matrix-wrap,
+    .chart-grid,
+    .insights {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    main {
+      overflow-x: clip;
+    }
+
+    .panel {
+      overflow: hidden;
+    }
+
+    .detail,
+    .detail p,
+    .detail .sub,
+    .detail .tags,
+    .note,
+    .source-list,
+    .deadline-note {
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    .split,
+    main > .grid:first-child .detail .split {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .split > *,
+    .note {
+      min-width: 0;
+    }
+
+    .matrix-wrap {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .matrix-wrap table {
+      width: max-content;
+      min-width: 1060px;
+      max-width: none;
+    }
+
+    .deadline-table-card {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .deadline-table {
+      min-width: 760px;
+    }
+
+    .timeline-dialog .panel {
+      overflow: visible;
+    }
     @media (max-width: 760px) {
       main > .grid:first-child .institution-layout,
       main > .grid:first-child .deadline-dashboard {
