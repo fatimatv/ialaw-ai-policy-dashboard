@@ -1734,6 +1734,89 @@
       min-width: 760px;
     }
 
+    .matrix-scroll-nav {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) 40px;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      padding: 10px;
+      border: 2px solid rgba(1, 30, 244, .18);
+      border-radius: 14px;
+      background: linear-gradient(90deg, rgba(1, 30, 244, .08), rgba(251, 187, 2, .18));
+    }
+
+    .matrix-scroll-btn {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 36px;
+      border: 2px solid var(--ialaw-blue);
+      border-radius: 999px;
+      background: var(--ialaw-blue);
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .matrix-scroll-btn:disabled {
+      border-color: rgba(1, 30, 244, .24);
+      background: rgba(1, 30, 244, .12);
+      color: var(--ialaw-gray);
+      cursor: default;
+    }
+
+    .matrix-scroll-range {
+      width: 100%;
+      min-width: 0;
+      accent-color: var(--ialaw-blue);
+      cursor: grab;
+    }
+
+    .matrix-scroll-range:active {
+      cursor: grabbing;
+    }
+
+    .matrix-scroll-range:disabled {
+      cursor: default;
+      opacity: .45;
+    }
+
+    .matrix-wrap {
+      scrollbar-width: thin;
+      scrollbar-color: var(--ialaw-blue) rgba(1, 30, 244, .12);
+    }
+
+    .matrix-wrap::-webkit-scrollbar {
+      height: 14px;
+    }
+
+    .matrix-wrap::-webkit-scrollbar-track {
+      background: rgba(1, 30, 244, .10);
+      border-radius: 999px;
+    }
+
+    .matrix-wrap::-webkit-scrollbar-thumb {
+      border: 3px solid rgba(1, 30, 244, .10);
+      border-radius: 999px;
+      background: var(--ialaw-blue);
+    }
+
+    .matrix-wrap.can-scroll-next {
+      box-shadow: inset -22px 0 20px -20px rgba(1, 30, 244, .75);
+    }
+
+    .matrix-wrap.can-scroll-prev {
+      box-shadow: inset 22px 0 20px -20px rgba(1, 30, 244, .75);
+    }
+
+    .matrix-wrap.can-scroll-prev.can-scroll-next {
+      box-shadow:
+        inset 22px 0 20px -20px rgba(1, 30, 244, .75),
+        inset -22px 0 20px -20px rgba(1, 30, 244, .75);
+    }
     .timeline-dialog .panel {
       overflow: visible;
     }
@@ -1847,6 +1930,11 @@
               <span><span class="status score-2">Parcial</span></span>
               <span><span class="status score-1">Debil</span></span>
             </div>
+          </div>
+          <div class="matrix-scroll-nav" aria-label="Navegacion horizontal de la matriz">
+            <button class="matrix-scroll-btn" id="matrixScrollLeft" type="button" aria-label="Ver columnas anteriores">‹</button>
+            <input class="matrix-scroll-range" id="matrixScrollRange" type="range" min="0" max="0" value="0" step="1" aria-label="Desplazamiento horizontal de la matriz" />
+            <button class="matrix-scroll-btn" id="matrixScrollRight" type="button" aria-label="Ver columnas siguientes">›</button>
           </div>
           <div class="matrix-wrap">
             <table id="matrix"></table>
@@ -2378,6 +2466,31 @@
         </tr>
       `).join("");
       table.innerHTML = header + body;
+      syncMatrixScrollNav();
+    }
+
+    function syncMatrixScrollNav() {
+      const wrap = document.querySelector(".matrix-wrap");
+      const range = document.querySelector("#matrixScrollRange");
+      const left = document.querySelector("#matrixScrollLeft");
+      const right = document.querySelector("#matrixScrollRight");
+      if (!wrap || !range || !left || !right) return;
+
+      const max = Math.max(0, wrap.scrollWidth - wrap.clientWidth);
+      range.max = String(Math.round(max));
+      range.value = String(Math.round(wrap.scrollLeft));
+      const hasOverflow = max > 1;
+      range.disabled = !hasOverflow;
+      left.disabled = !hasOverflow || wrap.scrollLeft <= 1;
+      right.disabled = !hasOverflow || wrap.scrollLeft >= max - 1;
+      wrap.classList.toggle("can-scroll-prev", hasOverflow && wrap.scrollLeft > 1);
+      wrap.classList.toggle("can-scroll-next", hasOverflow && wrap.scrollLeft < max - 1);
+    }
+
+    function scrollMatrixBy(direction) {
+      const wrap = document.querySelector(".matrix-wrap");
+      if (!wrap) return;
+      wrap.scrollBy({ left: direction * Math.max(260, wrap.clientWidth * .55), behavior: "smooth" });
     }
 
     function cellNote(id, key, score) {
@@ -2603,6 +2716,17 @@
       state.onlyGaps = event.target.checked;
       render();
     });
+
+    document.querySelector(".matrix-wrap")?.addEventListener("scroll", syncMatrixScrollNav, { passive: true });
+    document.querySelector("#matrixScrollRange")?.addEventListener("input", (event) => {
+      const wrap = document.querySelector(".matrix-wrap");
+      if (!wrap) return;
+      wrap.scrollLeft = Number(event.target.value);
+      syncMatrixScrollNav();
+    });
+    document.querySelector("#matrixScrollLeft")?.addEventListener("click", () => scrollMatrixBy(-1));
+    document.querySelector("#matrixScrollRight")?.addEventListener("click", () => scrollMatrixBy(1));
+    window.addEventListener("resize", syncMatrixScrollNav);
 
 
     const timelineDialog = document.querySelector("#timelineDialog");
