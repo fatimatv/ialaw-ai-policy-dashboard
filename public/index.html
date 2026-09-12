@@ -2130,6 +2130,48 @@
         evidence: "Alcance a personas y terceros, SGIA, roles, responsabilidades, supervision, ciclo de vida, principios de no discriminacion, privacidad, derechos, autor, seguridad, capacitacion, sostenibilidad, transparencia y rendicion de cuentas.",
         source: "https://www.gob.pe/institucion/inacal/normas-legales/8588046-085-2026-inacal-pe",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
+      },
+      {
+        id: "mef",
+        name: "MEF",
+        longName: "Ministerio de Economia y Finanzas",
+        sector: "Economia y finanzas",
+        instrument: "Resolucion Ministerial N. 408-2026-EF/44",
+        approval: "2026-09-11",
+        publication: "2026-09-11",
+        focus: "Politica institucional para desarrollar, adquirir, implementar y usar IA de manera segura, etica, transparente y responsable en procesos del MEF.",
+        difference: "Destaca por comprometer la implementacion de un Sistema de Gestion de Inteligencia Artificial para identificar, evaluar y gestionar riesgos, articulado con gobierno de datos, seguridad y datos personales.",
+        evidence: "Compromisos sobre derechos fundamentales, datos personales, seguridad de la informacion, transparencia, supervision humana, capacitacion, riesgos, sesgos, SGIA y gobernanza por el Comite de Gobierno y Transformacion Digital.",
+        source: "https://www.gob.pe/institucion/mef/normas-legales/8590544-408-2026-ef-44",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 1, training: 3, sustainability: 1, governance: 3, inventory: 3 }
+      },
+      {
+        id: "osinfor",
+        name: "OSINFOR",
+        longName: "Organismo de Supervision de los Recursos Forestales y de Fauna Silvestre",
+        sector: "Forestal y fauna silvestre",
+        instrument: "Resolucion de Jefatura N. 065-2026-OSINFOR/JE",
+        approval: "2026-09-10",
+        publication: "2026-09-11",
+        focus: "Politica para impulsar el uso, desarrollo e implementacion de IA en OSINFOR de forma etica, responsable, segura, transparente y alineada al interes publico.",
+        difference: "Incorpora impactos sociales, economicos y ambientales en la gestion de riesgos, y suma participacion en espacios de gobernanza de Internet como compromiso institucional.",
+        evidence: "Objetivo, alcance obligatorio, compromisos sobre derechos, datos personales, transparencia, no discriminacion, autor, capacitacion, riesgos, supervision humana, calidad y trazabilidad de datos, responsabilidad y gobernanza de Internet.",
+        source: "https://www.gob.pe/institucion/osinfor/normas-legales/8589559-065-2026-osinfor-je",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 1 }
+      },
+      {
+        id: "reniec",
+        name: "RENIEC",
+        longName: "Registro Nacional de Identificacion y Estado Civil",
+        sector: "Identificacion y registro civil",
+        instrument: "Resolucion Jefatural N. D000038-2026-RENIEC/JNAC",
+        approval: "2026-09-11",
+        publication: "2026-09-11",
+        focus: "Politica institucional para el uso de sistemas basados en IA en identificacion, informacion registral, servicios ciudadanos e innovacion institucional.",
+        difference: "Es especialmente fuerte en datos sensibles: protege datos personales, biometricos, registrales y administrativos, y prohibe entrenar modelos o usar esos datos en SBIA no autorizados por RENIEC.",
+        evidence: "Compromisos sobre derechos fundamentales, sesgos, autor, privacidad de datos biometricos y registrales, calidad de datos, riesgos, transparencia, supervision humana, gobernanza, trazabilidad, auditoria, sostenibilidad y capacitacion.",
+        source: "https://www.gob.pe/institucion/reniec/normas-legales/8588960-d000038-2026-reniec-jnac",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
       }
     ];
 
@@ -2145,9 +2187,9 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec"]);
     const state = {
-      selected: "oece",
+      selected: "reniec",
       dateMode: "publication",
       sector: "all",
       search: "",
@@ -2200,12 +2242,17 @@
     function renderSummary(data) {
       const scores = data.flatMap((inst) => principles.map((p) => inst.scores[p.key]));
       const first = institutions.reduce((a, b) => a.publication < b.publication ? a : b);
-      const latest = institutions.reduce((a, b) => a.publication > b.publication ? a : b);
+      const latestDate = institutions.reduce((date, inst) => inst.publication > date ? inst.publication : date, institutions[0].publication);
+      const latestNames = institutions
+        .filter((inst) => inst.publication === latestDate)
+        .map((inst) => inst.name)
+        .sort()
+        .join(", ");
       document.querySelector("#summary").innerHTML = [
         ["Instituciones", data.length, "documentos visibles segun filtros"],
         ["Cobertura media", `${Math.round(avg(scores) / 3 * 100)}%`, "principios explicitados o parcialmente cubiertos"],
         ["Primera publicacion", first.name, formatDate(first.publication)],
-        ["Mas reciente", latest.name, formatDate(latest.publication)]
+        ["Mas reciente", latestNames, formatDate(latestDate)]
       ].map(([label, value, note]) => `
         <div class="metric">
           <span>${label}</span>
@@ -2352,6 +2399,16 @@
         "midis.inventory": "Inventario + OIA + SGIA",
         "midis.human": "Supervision significativa",
         "midis.bias": "Sesgos en intervenciones sociales",
+        "mef.inventory": "SGIA para gestionar riesgos",
+        "mef.governance": "CGTD lidera y supervisa",
+        "mef.copyright": "No aparece como compromiso autonomo",
+        "mef.sustainability": "No aparece como eje propio",
+        "osinfor.sustainability": "Impactos sociales, economicos y ambientales",
+        "osinfor.inventory": "Sin inventario o SGIA expreso",
+        "osinfor.governance": "Gobernanza de Internet",
+        "reniec.privacy": "Datos biometricos y registrales",
+        "reniec.transparency": "Aviso en tramites asistidos por IA",
+        "reniec.inventory": "Trazabilidad/auditoria, sin SGIA",
         "itp.bias": "No aparece como compromiso autonomo",
         "ceplan.governance": "Principios sin arquitectura operativa",
         "apci.governance": "Incluye gobernanza de internet",
