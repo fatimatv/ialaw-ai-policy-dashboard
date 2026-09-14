@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IALAW | Politicas institucionales de IA</title>
+  <title>IALAW | Políticas institucionales de IA</title>
   <style>
     :root {
       --ialaw-blue: #011EF4;
@@ -32,7 +32,7 @@
       margin: 0;
       min-height: 100vh;
       color: var(--text);
-      font-family: Poppins, Arial, Helvetica, sans-serif;
+      font-family: Poppins, Arial, Helvética, sans-serif;
       background: var(--paper);
     }
 
@@ -155,7 +155,7 @@
       margin: 0;
       max-width: 860px;
       color: var(--ink);
-      font-family: Poppins, Arial, Helvetica, sans-serif;
+      font-family: Poppins, Arial, Helvética, sans-serif;
       font-weight: 800;
       font-size: clamp(34px, 5vw, 72px);
       line-height: .95;
@@ -831,7 +831,7 @@
     h1 {
       color: var(--ialaw-blue);
       max-width: 940px;
-      font-family: Poppins, Arial, Helvetica, sans-serif;
+      font-family: Poppins, Arial, Helvética, sans-serif;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0;
@@ -1837,7 +1837,7 @@
         <div><span>Observatorio normativo de inteligencia artificial</span></div>
       </div>
       <div class="toolbar" aria-label="Controles principales">
-        <input id="search" class="control" type="search" placeholder="Buscar institucion, principio o rasgo" />
+        <input id="search" class="control" type="search" placeholder="Buscar institución, principio o rasgo" />
         <select id="sectorFilter" class="control" aria-label="Filtrar por sector">
           <option value="all">Todos los sectores</option>
         </select>
@@ -1847,8 +1847,8 @@
 
     <section class="hero">
       <div>
-        <h1>Mapa comparado de politicas peruanas de IA responsable</h1>
-        <p class="lead">Dashboard interactivo con identidad visual IALAW sobre similitudes, diferencias, cobertura de principios y secuencia de aprobacion de las politicas institucionales de uso etico, seguro y responsable de inteligencia artificial.</p>
+        <h1>Mapa comparado de políticas peruanas de IA responsable</h1>
+        <p class="lead">Dashboard interactivo sobre similitudes, diferencias, cobertura de principios y secuencia de aprobación de las políticas institucionales de uso ético, seguro y responsable de inteligencia artificial.</p>
       </div>
       <div class="summary" id="summary"></div>
     </section>
@@ -1858,13 +1858,13 @@
         <article class="panel">
           <div class="panel-head">
             <div>
-              <h2>Linea de tiempo</h2>
-              <p>Secuencia de publicacion de las politicas institucionales identificadas.</p>
+              <h2>Línea de tiempo</h2>
+              <p>Secuencia de publicación de las políticas institucionales identificadas.</p>
             </div>
             <button class="timeline-action" id="openTimelineModal" type="button">Ver ampliada</button>
           </div>
           <div class="panel-body">
-            <div class="timeline-scroll" aria-label="Linea de tiempo">
+            <div class="timeline-scroll" aria-label="Línea de tiempo">
               <div class="timeline summary" id="timeline">
                 <div class="axis"></div>
               </div>
@@ -1888,8 +1888,8 @@
         <article class="panel">
           <div class="panel-head">
             <div>
-              <h2>Lectura por institucion</h2>
-              <p>Selecciona una entidad para ver foco, singularidades y vacios relativos.</p>
+              <h2>Lectura por institución</h2>
+              <p>Selecciona una entidad para ver foco, singularidades y vacíos relativos.</p>
             </div>
           </div>
           <div class="panel-body institution-layout">
@@ -1901,8 +1901,8 @@
         <dialog class="timeline-dialog" id="timelineDialog" aria-labelledby="timelineDialogTitle">
           <div class="panel-head">
             <div>
-              <h2 id="timelineDialogTitle">Linea de tiempo completa</h2>
-              <p>Publicacion de politicas institucionales identificadas.</p>
+              <h2 id="timelineDialogTitle">Línea de tiempo completa</h2>
+              <p>Publicación de políticas institucionales identificadas.</p>
             </div>
             <button class="dialog-close" id="closeTimelineModal" type="button">Cerrar</button>
           </div>
@@ -1916,7 +1916,7 @@
         <div class="panel-head">
           <div>
             <h2>Matriz de similitudes y diferencias</h2>
-            <p>La puntuacion refleja cuan explicitamente aparece cada principio en el documento revisado.</p>
+            <p>La puntuación refleja cuán explícitamente aparece cada principio en el documento revisado.</p>
           </div>
         </div>
         <div class="panel-body">
@@ -1926,12 +1926,12 @@
             </select>
             <div class="checks" aria-label="Leyenda de cobertura">
               <label><input type="checkbox" id="onlyGaps" /> Mostrar solo diferencias fuertes</label>
-              <span><span class="status score-3">Explicito</span></span>
+              <span><span class="status score-3">Explícito</span></span>
               <span><span class="status score-2">Parcial</span></span>
-              <span><span class="status score-1">Debil</span></span>
+              <span><span class="status score-1">Débil</span></span>
             </div>
           </div>
-          <div class="matrix-scroll-nav" aria-label="Navegacion horizontal de la matriz">
+          <div class="matrix-scroll-nav" aria-label="Navegación horizontal de la matriz">
             <button class="matrix-scroll-btn" id="matrixScrollLeft" type="button" aria-label="Ver columnas anteriores">‹</button>
             <input class="matrix-scroll-range" id="matrixScrollRange" type="range" min="0" max="0" value="0" step="1" aria-label="Desplazamiento horizontal de la matriz" />
             <button class="matrix-scroll-btn" id="matrixScrollRight" type="button" aria-label="Ver columnas siguientes">›</button>
@@ -1947,7 +1947,7 @@
           <div class="panel-head">
             <div>
               <h2>Cobertura transversal</h2>
-              <p>Principios mas repetidos y nivel promedio de formalizacion.</p>
+              <p>Principios más repetidos y nivel promedio de formalización.</p>
             </div>
           </div>
           <div class="panel-body chart-grid">
@@ -1958,8 +1958,8 @@
         <article class="panel">
           <div class="panel-head">
             <div>
-              <h2>Hallazgos rapidos</h2>
-              <p>Lecturas para orientar diagnostico, benchmarking o presentacion ejecutiva.</p>
+              <h2>Hallazgos rápidos</h2>
+              <p>Lecturas para orientar diagnóstico, benchmarking o presentación ejecutiva.</p>
             </div>
           </div>
           <div class="panel-body insights" id="insights"></div>
@@ -1969,7 +1969,7 @@
         <div class="panel-head">
           <div>
             <h2>Fuentes y trazabilidad</h2>
-            <p>Fechas y contenidos contrastados con PDFs locales y registros publicos oficiales cuando estuvieron disponibles.</p>
+            <p>Fechas y contenidos contrastados con PDFs locales y registros públicos oficiales cuando estuvieron disponibles.</p>
           </div>
         </div>
         <div class="panel-body">
@@ -1995,44 +1995,44 @@
     const principles = [
       { key: "rights", label: "Derechos fundamentales", short: "Derechos" },
       { key: "privacy", label: "Privacidad y datos personales", short: "Datos" },
-      { key: "human", label: "Supervision humana", short: "Humana" },
+      { key: "human", label: "Supervisión humana", short: "Humana" },
       { key: "transparency", label: "Transparencia y explicabilidad", short: "Transparencia" },
-      { key: "risk", label: "Gestion de riesgos y seguridad", short: "Riesgos" },
-      { key: "bias", label: "No discriminacion y sesgos", short: "Sesgos" },
-      { key: "accountability", label: "Rendicion de cuentas", short: "Cuenta" },
+      { key: "risk", label: "Gestión de riesgos y seguridad", short: "Riesgos" },
+      { key: "bias", label: "No discriminación y sesgos", short: "Sesgos" },
+      { key: "accountability", label: "Rendición de cuentas", short: "Cuenta" },
       { key: "copyright", label: "Derecho de autor", short: "Autor" },
-      { key: "training", label: "Capacitacion y sensibilizacion", short: "Capacitacion" },
+      { key: "training", label: "Capacitación y sensibilización", short: "Capacitación" },
       { key: "sustainability", label: "Sostenibilidad", short: "Sostenibilidad" },
       { key: "governance", label: "Gobernanza institucional", short: "Gobernanza" },
-      { key: "inventory", label: "Inventario, aprobacion o SGIA", short: "Control" }
+      { key: "inventory", label: "Inventario, aprobación o SGIA", short: "Control" }
     ];
 
     const institutions = [
       {
         id: "indecopi",
         name: "Indecopi",
-        longName: "Instituto Nacional de Defensa de la Competencia y de la Proteccion de la Propiedad Intelectual",
+        longName: "Instituto Nacional de Defensa de la Competencia y de la Protección de la Propiedad Intelectual",
         sector: "Competencia y propiedad intelectual",
-        instrument: "Resolucion N. 000062-2025-GEG/INDECOPI y Lineamiento 000001-2025-GEG",
+        instrument: "Resolución N. 000062-2025-GEG/INDECOPI y Lineamiento 000001-2025-GEG",
         approval: "2025-05-28",
         publication: "2025-05-30",
-        focus: "Lineamiento operativo temprano: define responsables, prohibiciones, aprobacion previa por OTI/ETIA e inventario de sistemas IA.",
-        difference: "Es el documento mas procedimental: incluye prohibiciones concretas sobre uso no aprobado, decisiones automatizadas sin supervision y tratamiento no autorizado de datos.",
-        evidence: "Objeto, ambito, responsabilidades, principios, prohibiciones y disposiciones especificas.",
+        focus: "Lineamiento operativo temprano: define responsables, prohibiciones, aprobación previa por OTI/ETIA e inventario de sistemas IA.",
+        difference: "Es el documento más procedimental: incluye prohibiciones concretas sobre uso no aprobado, decisiones automatizadas sin supervisión y tratamiento no autorizado de datos.",
+        evidence: "Objeto, ámbito, responsabilidades, principios, prohibiciones y disposiciones específicas.",
         source: "https://www.gob.pe/institucion/indecopi/normas-legales/6822195-000062-2025-geg-indecopi",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 2, bias: 3, accountability: 3, copyright: 2, training: 3, sustainability: 1, governance: 3, inventory: 3 }
       },
       {
         id: "osinergmin",
         name: "Osinergmin",
-        longName: "Organismo Supervisor de la Inversion en Energia y Mineria",
-        sector: "Energia y mineria",
-        instrument: "Resolucion de Presidencia del Consejo Directivo N. 29-2026-OS/PRES",
+        longName: "Organismo Supervisor de la Inversión en Energía y Minería",
+        sector: "Energía y minería",
+        instrument: "Resolución de Presidencia del Consejo Directivo N. 29-2026-OS/PRES",
         approval: "2026-02-27",
         publication: "2026-02-27",
-        focus: "Politica institucional compacta, alineada a regulacion, fiscalizacion y proteccion de usuarios del sector energia y mineria.",
-        difference: "Integra la IA a objetivos de regulacion y fiscalizacion; enfatiza seguridad basada en riesgos y confianza publica.",
-        evidence: "Compromisos institucionales sobre derechos, privacidad, seguridad, transparencia, autor, rendicion de cuentas, formacion y sostenibilidad.",
+        focus: "Política institucional compacta, alineada a regulación, fiscalización y protección de usuarios del sector energía y minería.",
+        difference: "Integra la IA a objetivos de regulación y fiscalización; enfatiza seguridad basada en riesgos y confianza pública.",
+        evidence: "Compromisos institucionales sobre derechos, privacidad, seguridad, transparencia, autor, rendición de cuentas, formación y sostenibilidad.",
         source: "https://www.gob.pe/institucion/osinergmin/normas-legales?sheet=11",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 2, inventory: 1 }
       },
@@ -2041,82 +2041,82 @@
         name: "ONPE",
         longName: "Oficina Nacional de Procesos Electorales",
         sector: "Electoral",
-        instrument: "Resolucion Jefatural N. RJ-160-2025-JN",
+        instrument: "Resolución Jefatural N. RJ-160-2025-JN",
         approval: "2025-10-10",
         publication: "2025-10-10",
-        focus: "Politica obligatoria para el uso de IA en gerencias, oficinas y organos desconcentrados, con foco en transparencia, equidad, inclusion y gobernanza de datos.",
-        difference: "Destaca por ordenar la elaboracion de lineamientos, protocolos y manuales operativos especificos, a cargo de Informatica y Tecnologia Electoral con Planeamiento y Asesoria Juridica.",
-        evidence: "Resolucion aprobatoria, obligatoriedad institucional, principios de transparencia, equidad, inclusion, gobernanza de datos, mitigacion de sesgos y responsabilidad institucional.",
+        focus: "Política obligatoria para el uso de IA en gerencias, oficinas y órganos desconcentrados, con foco en transparencia, equidad, inclusión y gobernanza de datos.",
+        difference: "Destaca por ordenar la elaboración de lineamientos, protocolos y manuales operativos específicos, a cargo de Informática y Tecnología Electoral con Planeamiento y Asesoría Jurídica.",
+        evidence: "Resolución aprobatoria, obligatoriedad institucional, principios de transparencia, equidad, inclusión, gobernanza de datos, mitigación de sesgos y responsabilidad institucional.",
         source: "https://www.gob.pe/institucion/onpe/normas-legales/7279164-rj-160-2025-jn",
         scores: { rights: 3, privacy: 2, human: 2, transparency: 3, risk: 2, bias: 3, accountability: 3, copyright: 1, training: 2, sustainability: 1, governance: 3, inventory: 1 }
       },
       {
         id: "onp",
         name: "ONP",
-        longName: "Oficina de Normalizacion Previsional",
+        longName: "Oficina de Normalización Previsional",
         sector: "Previsional",
-        instrument: "Resolucion Jefatural N. 000034-2026-JF-ONP",
+        instrument: "Resolución Jefatural N. 000034-2026-JF-ONP",
         approval: "2026-03-06",
         publication: "2026-03-06",
-        focus: "Politica orientada a un Sistema de Gestion de Inteligencia Artificial, con referencia a NTP ISO/IEC 42001:2025.",
-        difference: "Es la mas cercana a un modelo de sistema de gestion: mejora continua, evaluaciones de impacto y controles para decisiones de alto impacto previsional.",
-        evidence: "Compromisos de SGIA, requisitos legales, sesgos, datos personales, explicabilidad, supervision humana y evaluaciones de impacto.",
+        focus: "Política orientada a un Sistema de Gestión de Inteligencia Artificial, con referencia a NTP ISO/IEC 42001:2025.",
+        difference: "Es la más cercana a un modelo de sistema de gestión: mejora continua, evaluaciones de impacto y controles para decisiones de alto impacto previsional.",
+        evidence: "Compromisos de SGIA, requisitos legales, sesgos, datos personales, explicabilidad, supervisión humana y evaluaciones de impacto.",
         source: "https://www.gob.pe/institucion/onp/normas-legales/7827936-000034-2026-jf-onp",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 2, copyright: 1, training: 3, sustainability: 1, governance: 3, inventory: 3 }
       },
       {
         id: "apci",
         name: "APCI",
-        longName: "Agencia Peruana de Cooperacion Internacional",
-        sector: "Cooperacion internacional",
-        instrument: "Resolucion de Gerencia General N. 007-2026/APCI-GG",
+        longName: "Agencia Peruana de Cooperación Internacional",
+        sector: "Cooperación internacional",
+        instrument: "Resolución de Gerencia General N. 007-2026/APCI-GG",
         approval: "2026-05-18",
         publication: "2026-05-18",
-        focus: "Politica de principios aplicable a servidores y proveedores autorizados en todas las unidades de organizacion.",
-        difference: "Incluye principios amplios como gobernanza de internet, sociedad digital y pluralidad de participantes, ademas de la lista usual del reglamento.",
-        evidence: "Principios sobre seguridad basada en riesgos, sociedad digital, derechos, privacidad, autor, supervision, transparencia y sostenibilidad.",
+        focus: "Política de principios aplicable a servidores y proveedores autorizados en todas las unidades de organización.",
+        difference: "Incluye principios amplios como gobernanza de internet, sociedad digital y pluralidad de participantes, además de la lista usual del reglamento.",
+        evidence: "Principios sobre seguridad basada en riesgos, sociedad digital, derechos, privacidad, autor, supervisión, transparencia y sostenibilidad.",
         source: "https://www.gob.pe/institucion/apci/normas-legales/8143030-007-2026-apci-gg",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 1 }
       },
       {
         id: "ceplan",
         name: "CEPLAN",
-        longName: "Centro Nacional de Planeamiento Estrategico",
-        sector: "Planeamiento estrategico",
-        instrument: "Resolucion de Presidencia del Consejo Directivo N. 033-2026/CEPLAN/PCD",
+        longName: "Centro Nacional de Planeamiento Estratégico",
+        sector: "Planeamiento estratégico",
+        instrument: "Resolución de Presidencia del Consejo Directivo N. 033-2026/CEPLAN/PCD",
         approval: "2026-05-26",
         publication: "2026-05-26",
         focus: "Anexo de principios rectores alineado al Reglamento de la Ley 31814 y a la ENIA 2026-2030.",
-        difference: "Es el documento mas canonico: ordena casi literalmente los principios rectores, con poca bajada procedimental.",
-        evidence: "Principios de no discriminacion, privacidad, derechos, autor, seguridad, educacion, sostenibilidad, supervision, transparencia y rendicion de cuentas.",
+        difference: "Es el documento más canónico: ordena casi literalmente los principios rectores, con poca bajada procedimental.",
+        evidence: "Principios de no discriminación, privacidad, derechos, autor, seguridad, educación, sostenibilidad, supervisión, transparencia y rendición de cuentas.",
         source: "https://www.gob.pe/institucion/ceplan/normas-legales/8188352-033-2026-ceplan-pcd",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 1, inventory: 1 }
       },
       {
         id: "itp",
         name: "ITP",
-        longName: "Instituto Tecnologico de la Produccion",
-        sector: "Produccion e innovacion",
-        instrument: "Resolucion de Consejo Directivo N. 1-2026-ITP",
+        longName: "Instituto Tecnológico de la Producción",
+        sector: "Producción e innovación",
+        instrument: "Resolución de Consejo Directivo N. 1-2026-ITP",
         approval: "2026-07-09",
         publication: "2026-07-09",
-        focus: "Politica breve de compromiso institucional para incorporar IA en innovacion, productividad y servicios al sector productivo.",
-        difference: "Aterriza la IA en productividad, calidad, I+D+i y transferencia tecnologica; es declarativa y menos procedimental.",
-        evidence: "Compromisos sobre uso etico, marco normativo, supervision humana, capacitacion, riesgos, datos y transparencia.",
+        focus: "Política breve de compromiso institucional para incorporar IA en innovación, productividad y servicios al sector productivo.",
+        difference: "Aterriza la IA en productividad, calidad, I+D+i y transferencia tecnológica; es declarativa y menos procedimental.",
+        evidence: "Compromisos sobre uso ético, marco normativo, supervisión humana, capacitación, riesgos, datos y transparencia.",
         source: "https://www.gob.pe/institucion/itp/normas-legales/8360004-1-2026-itp",
         scores: { rights: 2, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 1, accountability: 1, copyright: 1, training: 3, sustainability: 2, governance: 2, inventory: 1 }
       },
       {
         id: "sunat",
         name: "SUNAT",
-        longName: "Superintendencia Nacional de Aduanas y de Administracion Tributaria",
+        longName: "Superintendencia Nacional de Aduanas y de Administración Tributaria",
         sector: "Tributario y aduanero",
-        instrument: "Resolucion de Superintendencia N. 000144-2026/SUNAT",
+        instrument: "Resolución de Superintendencia N. 000144-2026/SUNAT",
         approval: "2026-07-30",
         publication: "2026-07-31",
-        focus: "Politica institucional para sistemas basados en IA, con encargo expreso al Comite de Gobierno y Transformacion Digital.",
-        difference: "Destaca por el mandato formal de implementacion, seguimiento y evaluacion a cargo del comite institucional.",
-        evidence: "Resolucion aprueba politica y encarga al Comite su implementacion, seguimiento y evaluacion.",
+        focus: "Política institucional para sistemas basados en IA, con encargo expreso al Comité de Gobierno y Transformación Digital.",
+        difference: "Destaca por el mandato formal de implementación, seguimiento y evaluación a cargo del comité institucional.",
+        evidence: "Resolución aprueba política y encarga al Comité su implementación, seguimiento y evaluación.",
         source: "https://www.sunat.gob.pe/legislacion/superin/2026/indices/indcor.htm",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 2, copyright: 2, training: 3, sustainability: 2, governance: 3, inventory: 2 }
       },
@@ -2125,40 +2125,40 @@
         name: "SERVIR",
         longName: "Autoridad Nacional del Servicio Civil",
         sector: "Servicio civil",
-        instrument: "Resolucion de Presidencia Ejecutiva N. 000133-2026/PE",
+        instrument: "Resolución de Presidencia Ejecutiva N. 000133-2026/PE",
         approval: "2026-08-19",
         publication: "2026-08-21",
-        focus: "Politica institucional para gobernar el ciclo de vida de sistemas basados en IA mediante un Sistema de Gestion de Inteligencia Artificial.",
-        difference: "Es fuerte en gestion: compromete implementar, operar y mejorar un SGIA, alinea recursos a instrumentos institucionales y toma como referencia NTP ISO/IEC 42001:2025 y controles de seguridad.",
-        evidence: "Compromisos sobre derechos, privacidad, no discriminacion, supervision humana, transparencia, rendicion de cuentas, sostenibilidad, capacitacion, SGIA y gestion basada en riesgos.",
+        focus: "Política institucional para gobernar el ciclo de vida de sistemas basados en IA mediante un Sistema de Gestión de Inteligencia Artificial.",
+        difference: "Es fuerte en gestión: compromete implementar, operar y mejorar un SGIA, alinea recursos a instrumentos institucionales y toma como referencia NTP ISO/IEC 42001:2025 y controles de seguridad.",
+        evidence: "Compromisos sobre derechos, privacidad, no discriminación, supervisión humana, transparencia, rendición de cuentas, sostenibilidad, capacitación, SGIA y gestión basada en riesgos.",
         source: "https://www.gob.pe/institucion/servir/normas-legales/8513507-000133-2026-pe",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
       },
       {
         id: "sunarp",
         name: "SUNARP",
-        longName: "Superintendencia Nacional de los Registros Publicos",
-        sector: "Registros publicos",
-        instrument: "Resolucion de la Superintendencia Nacional de los Registros Publicos N. 00191-2026-SUNARP/SN",
+        longName: "Superintendencia Nacional de los Registros Públicos",
+        sector: "Registros públicos",
+        instrument: "Resolución de la Superintendencia Nacional de los Registros Públicos N. 00191-2026-SUNARP/SN",
         approval: "2026-09-02",
         publication: "2026-09-04",
-        focus: "Politica institucional para el uso responsable, seguro y etico de IA en la funcion registral, la gestion institucional y los servicios de SUNARP.",
-        difference: "Es especialmente concreta porque conecta la politica con la Plataforma IA SUNARP JULIO y sus componentes para consulta de criterios, precedentes y resoluciones registrales.",
-        evidence: "Finalidad, alcance institucional, base legal, antecedentes de JULIO y principios de no discriminacion, privacidad, derechos fundamentales, autor, seguridad, supervision humana, transparencia y rendicion de cuentas.",
+        focus: "Política institucional para el uso responsable, seguro y ético de IA en la función registral, la gestión institucional y los servicios de SUNARP.",
+        difference: "Es especialmente concreta porque conecta la política con la Plataforma IA SUNARP JULIO y sus componentes para consulta de criterios, precedentes y resoluciones registrales.",
+        evidence: "Finalidad, alcance institucional, base legal, antecedentes de JULIO y principios de no discriminación, privacidad, derechos fundamentales, autor, seguridad, supervisión humana, transparencia y rendición de cuentas.",
         source: "https://www.gob.pe/institucion/sunarp/normas-legales/8563063-00191-2026-sunarp-sn",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 2, sustainability: 2, governance: 3, inventory: 2 }
       },
       {
         id: "midis",
         name: "MIDIS",
-        longName: "Ministerio de Desarrollo e Inclusion Social",
-        sector: "Desarrollo e inclusion social",
-        instrument: "Resolucion Ministerial N. 248-2026-MIDIS",
+        longName: "Ministerio de Desarrollo e Inclusión Social",
+        sector: "Desarrollo e inclusión social",
+        instrument: "Resolución Ministerial N. 248-2026-MIDIS",
         approval: "2026-09-08",
         publication: "2026-09-09",
-        focus: "Politica institucional orientada a gobernar sistemas de IA en programas, servicios e intervenciones sociales, con foco en poblaciones vulnerables.",
-        difference: "Destaca por exigir registro institucional, evaluacion y clasificacion de riesgos, supervision humana significativa, controles de datos y avance hacia un SGIA basado en NTP ISO/IEC 42001:2025.",
-        evidence: "Compromisos sobre derechos, inclusion social, sesgos algoritmicos, decisiones sobre beneficios ciudadanos, transparencia, trazabilidad, auditabilidad, datos, inventario, OIA, SGIA y capacitacion por responsabilidades.",
+        focus: "Política institucional orientada a gobernar sistemas de IA en programas, servicios e intervenciones sociales, con foco en poblaciones vulnerables.",
+        difference: "Destaca por exigir registro institucional, evaluación y clasificación de riesgos, supervisión humana significativa, controles de datos y avance hacia un SGIA basado en NTP ISO/IEC 42001:2025.",
+        evidence: "Compromisos sobre derechos, inclusión social, sesgos algorítmicos, decisiones sobre beneficios ciudadanos, transparencia, trazabilidad, auditabilidad, datos, inventario, OIA, SGIA y capacitación por responsabilidades.",
         source: "https://www.gob.pe/institucion/midis/normas-legales/8583281-248-2026-midis",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 2, governance: 3, inventory: 3 }
       },
@@ -2167,12 +2167,12 @@
         name: "SMV",
         longName: "Superintendencia del Mercado de Valores",
         sector: "Mercado de valores",
-        instrument: "POL-GES-GAD-008 / Resolucion de Superintendente N. 095-2026-SMV/02",
+        instrument: "POL-GES-GAD-008 / Resolución de Superintendente N. 095-2026-SMV/02",
         approval: "2026-09-08",
         publication: "2026-09-08",
-        focus: "Politica institucional con compromisos generales, gobernanza y uso de IA en procesos regulatorios o de supervision.",
-        difference: "Menciona expresamente procesos regulatorios y de supervision, calidad de datos, trazabilidad y uso exclusivo de herramientas autorizadas.",
-        evidence: "Compromisos de gobernanza institucional, supervision humana, privacidad, transparencia, riesgos, calidad de datos, rendicion de cuentas, autor y sostenibilidad.",
+        focus: "Política institucional con compromisos generales, gobernanza y uso de IA en procesos regulatorios o de supervisión.",
+        difference: "Menciona expresamente procesos regulatorios y de supervisión, calidad de datos, trazabilidad y uso exclusivo de herramientas autorizadas.",
+        evidence: "Compromisos de gobernanza institucional, supervisión humana, privacidad, transparencia, riesgos, calidad de datos, rendición de cuentas, autor y sostenibilidad.",
         source: "https://www.gob.pe/institucion/smv/normas-legales/8580124-095-2026-smv-02",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
 
@@ -2180,28 +2180,28 @@
       {
         id: "ositran",
         name: "OSITRAN",
-        longName: "Organismo Supervisor de la Inversion en Infraestructura de Transporte de Uso Publico",
+        longName: "Organismo Supervisor de la Inversión en Infraestructura de Transporte de Uso Público",
         sector: "Infraestructura de transporte",
-        instrument: "Resolucion de Presidencia N. 038-2026-PD-OSITRAN",
+        instrument: "Resolución de Presidencia N. 038-2026-PD-OSITRAN",
         approval: "2026-09-07",
         publication: "2026-09-07",
-        focus: "Politica de compromisos para el uso seguro, responsable y etico de sistemas y herramientas basados en IA en servicios digitales y procesos institucionales.",
-        difference: "Vincula la gestion de riesgos de IA con el Sistema de Gestion Integral de Riesgos del Ositran y enfatiza que la IA apoya, pero no sustituye, el juicio profesional de los servidores.",
-        evidence: "Compromisos sobre derechos fundamentales, no discriminacion, transparencia, supervision humana, rendicion de cuentas, gestion integral de riesgos, datos personales, autor, capacitacion y cultura institucional.",
+        focus: "Política de compromisos para el uso seguro, responsable y ético de sistemas y herramientas basados en IA en servicios digitales y procesos institucionales.",
+        difference: "Vincula la gestión de riesgos de IA con el Sistema de Gestión Integral de Riesgos del Ositran y enfatiza que la IA apoya, pero no sustituye, el juicio profesional de los servidores.",
+        evidence: "Compromisos sobre derechos fundamentales, no discriminación, transparencia, supervisión humana, rendición de cuentas, gestión integral de riesgos, datos personales, autor, capacitación y cultura institucional.",
         source: "https://www.gob.pe/institucion/ositran/normas-legales/8578171-038-2026-pd-ositran",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 2, inventory: 1 }
       },
       {
         id: "oece",
         name: "OECE",
-        longName: "Organismo Especializado para las Contrataciones Publicas Eficientes",
-        sector: "Contrataciones publicas",
-        instrument: "Resolucion de Presidencia Ejecutiva N. 282-2026-OECE/PRE",
+        longName: "Organismo Especializado para las Contrataciones Públicas Eficientes",
+        sector: "Contrataciones públicas",
+        instrument: "Resolución de Presidencia Ejecutiva N. 282-2026-OECE/PRE",
         approval: "2026-09-10",
         publication: "2026-09-10",
-        focus: "Politica institucional para disenar, desarrollar, adquirir, implementar y usar IA en contrataciones publicas eficientes, con criterios de valor publico, integridad y mejora continua.",
-        difference: "Destaca por su arquitectura de gobernanza: el Comite de Gobierno y Transformacion Digital lidera proyectos estrategicos de IA articulando seguridad digital, gobierno de datos, datos personales y unidades competentes.",
-        evidence: "Principios de riesgos, pluralidad, gobernanza de internet, sociedad digital, etica, privacidad, no discriminacion, derechos, autor, sensibilizacion, sostenibilidad, supervision humana, transparencia y rendicion de cuentas.",
+        focus: "Política institucional para diseñar, desarrollar, adquirir, implementar y usar IA en contrataciones públicas eficientes, con criterios de valor público, integridad y mejora continua.",
+        difference: "Destaca por su arquitectura de gobernanza: el Comité de Gobierno y Transformación Digital lidera proyectos estratégicos de IA articulando seguridad digital, gobierno de datos, datos personales y unidades competentes.",
+        evidence: "Principios de riesgos, pluralidad, gobernanza de internet, sociedad digital, ética, privacidad, no discriminación, derechos, autor, sensibilización, sostenibilidad, supervisión humana, transparencia y rendición de cuentas.",
         source: "https://www.gob.pe/institucion/oece/normas-legales/8587001-282-2026-oece-pre",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 1 }
       },
@@ -2209,55 +2209,55 @@
         id: "inacal",
         name: "INACAL",
         longName: "Instituto Nacional de Calidad",
-        sector: "Calidad y acreditacion",
-        instrument: "Resolucion de Presidencia Ejecutiva N. 085-2026-INACAL/PE",
+        sector: "Calidad y acreditación",
+        instrument: "Resolución de Presidencia Ejecutiva N. 085-2026-INACAL/PE",
         approval: "2026-09-10",
         publication: "2026-09-10",
-        focus: "Politica institucional para el uso seguro, responsable y etico de sistemas basados en IA, integrada al Sistema de Gestion de Inteligencia Artificial del INACAL.",
-        difference: "Es una de las mas tecnicas: compromete cumplimiento de NTP-ISO/IEC 42001:2025, gobernanza con roles y autoridades, y gestion de riesgos alineada a NTP-ISO/IEC 23894 y NTP-ISO/IEC 38507.",
-        evidence: "Alcance a personas y terceros, SGIA, roles, responsabilidades, supervision, ciclo de vida, principios de no discriminacion, privacidad, derechos, autor, seguridad, capacitacion, sostenibilidad, transparencia y rendicion de cuentas.",
+        focus: "Política institucional para el uso seguro, responsable y ético de sistemas basados en IA, integrada al Sistema de Gestión de Inteligencia Artificial del INACAL.",
+        difference: "Es una de las más técnicas: compromete cumplimiento de NTP-ISO/IEC 42001:2025, gobernanza con roles y autoridades, y gestión de riesgos alineada a NTP-ISO/IEC 23894 y NTP-ISO/IEC 38507.",
+        evidence: "Alcance a personas y terceros, SGIA, roles, responsabilidades, supervisión, ciclo de vida, principios de no discriminación, privacidad, derechos, autor, seguridad, capacitación, sostenibilidad, transparencia y rendición de cuentas.",
         source: "https://www.gob.pe/institucion/inacal/normas-legales/8588046-085-2026-inacal-pe",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
       },
       {
         id: "mef",
         name: "MEF",
-        longName: "Ministerio de Economia y Finanzas",
-        sector: "Economia y finanzas",
-        instrument: "Resolucion Ministerial N. 408-2026-EF/44",
+        longName: "Ministerio de Economía y Finanzas",
+        sector: "Economía y finanzas",
+        instrument: "Resolución Ministerial N. 408-2026-EF/44",
         approval: "2026-09-11",
         publication: "2026-09-11",
-        focus: "Politica institucional para desarrollar, adquirir, implementar y usar IA de manera segura, etica, transparente y responsable en procesos del MEF.",
-        difference: "Destaca por comprometer la implementacion de un Sistema de Gestion de Inteligencia Artificial para identificar, evaluar y gestionar riesgos, articulado con gobierno de datos, seguridad y datos personales.",
-        evidence: "Compromisos sobre derechos fundamentales, datos personales, seguridad de la informacion, transparencia, supervision humana, capacitacion, riesgos, sesgos, SGIA y gobernanza por el Comite de Gobierno y Transformacion Digital.",
+        focus: "Política institucional para desarrollar, adquirir, implementar y usar IA de manera segura, ética, transparente y responsable en procesos del MEF.",
+        difference: "Destaca por comprometer la implementación de un Sistema de Gestión de Inteligencia Artificial para identificar, evaluar y gestionar riesgos, articulado con gobierno de datos, seguridad y datos personales.",
+        evidence: "Compromisos sobre derechos fundamentales, datos personales, seguridad de la información, transparencia, supervisión humana, capacitación, riesgos, sesgos, SGIA y gobernanza por el Comité de Gobierno y Transformación Digital.",
         source: "https://www.gob.pe/institucion/mef/normas-legales/8590544-408-2026-ef-44",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 1, training: 3, sustainability: 1, governance: 3, inventory: 3 }
       },
       {
         id: "osinfor",
         name: "OSINFOR",
-        longName: "Organismo de Supervision de los Recursos Forestales y de Fauna Silvestre",
+        longName: "Organismo de Supervisión de los Recursos Forestales y de Fauna Silvestre",
         sector: "Forestal y fauna silvestre",
-        instrument: "Resolucion de Jefatura N. 065-2026-OSINFOR/JE",
+        instrument: "Resolución de Jefatura N. 065-2026-OSINFOR/JE",
         approval: "2026-09-10",
         publication: "2026-09-11",
-        focus: "Politica para impulsar el uso, desarrollo e implementacion de IA en OSINFOR de forma etica, responsable, segura, transparente y alineada al interes publico.",
-        difference: "Incorpora impactos sociales, economicos y ambientales en la gestion de riesgos, y suma participacion en espacios de gobernanza de Internet como compromiso institucional.",
-        evidence: "Objetivo, alcance obligatorio, compromisos sobre derechos, datos personales, transparencia, no discriminacion, autor, capacitacion, riesgos, supervision humana, calidad y trazabilidad de datos, responsabilidad y gobernanza de Internet.",
+        focus: "Política para impulsar el uso, desarrollo e implementación de IA en OSINFOR de forma ética, responsable, segura, transparente y alineada al interés público.",
+        difference: "Incorpora impactos sociales, económicos y ambientales en la gestión de riesgos, y suma participación en espacios de gobernanza de Internet como compromiso institucional.",
+        evidence: "Objetivo, alcance obligatorio, compromisos sobre derechos, datos personales, transparencia, no discriminación, autor, capacitación, riesgos, supervisión humana, calidad y trazabilidad de datos, responsabilidad y gobernanza de Internet.",
         source: "https://www.gob.pe/institucion/osinfor/normas-legales/8589559-065-2026-osinfor-je",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 1 }
       },
       {
         id: "reniec",
         name: "RENIEC",
-        longName: "Registro Nacional de Identificacion y Estado Civil",
-        sector: "Identificacion y registro civil",
-        instrument: "Resolucion Jefatural N. D000038-2026-RENIEC/JNAC",
+        longName: "Registro Nacional de Identificación y Estado Civil",
+        sector: "Identificación y registro civil",
+        instrument: "Resolución Jefatural N. D000038-2026-RENIEC/JNAC",
         approval: "2026-09-11",
         publication: "2026-09-11",
-        focus: "Politica institucional para el uso de sistemas basados en IA en identificacion, informacion registral, servicios ciudadanos e innovacion institucional.",
-        difference: "Es especialmente fuerte en datos sensibles: protege datos personales, biometricos, registrales y administrativos, y prohibe entrenar modelos o usar esos datos en SBIA no autorizados por RENIEC.",
-        evidence: "Compromisos sobre derechos fundamentales, sesgos, autor, privacidad de datos biometricos y registrales, calidad de datos, riesgos, transparencia, supervision humana, gobernanza, trazabilidad, auditoria, sostenibilidad y capacitacion.",
+        focus: "Política institucional para el uso de sistemas basados en IA en identificación, información registral, servicios ciudadanos e innovación institucional.",
+        difference: "Es especialmente fuerte en datos sensibles: protege datos personales, biométricos, registrales y administrativos, y prohíbe entrenar modelos o usar esos datos en SBIA no autorizados por RENIEC.",
+        evidence: "Compromisos sobre derechos fundamentales, sesgos, autor, privacidad de datos biométricos y registrales, calidad de datos, riesgos, transparencia, supervisión humana, gobernanza, trazabilidad, auditoría, sostenibilidad y capacitación.",
         source: "https://www.gob.pe/institucion/reniec/normas-legales/8588960-d000038-2026-reniec-jnac",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
       }
@@ -2311,9 +2311,9 @@
     }
 
     function scoreLabel(score) {
-      if (score >= 3) return "Explicito";
+      if (score >= 3) return "Explícito";
       if (score === 2) return "Parcial";
-      return "Debil";
+      return "Débil";
     }
 
     function renderFilters() {
@@ -2337,10 +2337,10 @@
         .sort()
         .join(", ");
       document.querySelector("#summary").innerHTML = [
-        ["Instituciones", data.length, "documentos visibles segun filtros"],
+        ["Instituciones", data.length, "documentos visibles según filtros"],
         ["Cobertura media", `${Math.round(avg(scores) / 3 * 100)}%`, "principios explicitados o parcialmente cubiertos"],
-        ["Primera publicacion", first.name, formatDate(first.publication)],
-        ["Mas reciente", latestNames, formatDate(latestDate)]
+        ["Primera publicación", first.name, formatDate(first.publication)],
+        ["Más reciente", latestNames, formatDate(latestDate)]
       ].map(([label, value, note]) => `
         <div class="metric">
           <span>${label}</span>
@@ -2404,8 +2404,8 @@
         .join("");
       list.innerHTML = `
         <div class="institution-picker">
-          <label for="institutionSelect">Institucion</label>
-          <select id="institutionSelect" aria-label="Seleccionar institucion">${options}</select>
+          <label for="institutionSelect">Institución</label>
+          <select id="institutionSelect" aria-label="Seleccionar institución">${options}</select>
         </div>
       `;
       list.querySelector("#institutionSelect")?.addEventListener("change", (event) => {
@@ -2435,12 +2435,12 @@
         </div>
         <div class="split">
           <div>
-            <h4>Principios mas explicitos</h4>
+            <h4>Principios más explícitos</h4>
             <div class="tags">${explicit.map((p) => `<span class="tag">${p.short}</span>`).join("") || `<span class="muted-cell">Sin coincidencias fuertes</span>`}</div>
           </div>
           <div>
             <h4>Menos desarrollado</h4>
-            <div class="tags">${weak.map((p) => `<span class="tag">${p.short}</span>`).join("") || `<span class="muted-cell">Sin vacios marcados</span>`}</div>
+            <div class="tags">${weak.map((p) => `<span class="tag">${p.short}</span>`).join("") || `<span class="muted-cell">Sin vacíos marcados</span>`}</div>
           </div>
         </div>
         <p class="sub"><strong>Evidencia revisada:</strong> ${selected.evidence}</p>
@@ -2499,36 +2499,36 @@
         "onp.inventory": "SGIA + evaluaciones de impacto",
         "onpe.governance": "Protocolos y manuales operativos",
         "ositran.risk": "Conecta con SGIR institucional",
-        "ositran.human": "Apoyo, no sustitucion del juicio",
-        "oece.governance": "CGTD lidera proyectos estrategicos",
-        "oece.transparency": "Comprensible segun riesgo",
+        "ositran.human": "Apoyo, no sustitución del juicio",
+        "oece.governance": "CGTD lidera proyectos estratégicos",
+        "oece.transparency": "Comprensible según riesgo",
         "inacal.governance": "SGIA + roles + autoridad",
         "inacal.risk": "NTP-ISO/IEC 23894",
-        "onpe.bias": "Equidad, inclusion y sesgos",
+        "onpe.bias": "Equidad, inclusión y sesgos",
         "servir.governance": "SGIA + NTP ISO/IEC 42001",
         "servir.sustainability": "Sostenibilidad integral",
         "sunarp.inventory": "Plataforma IA SUNARP JULIO",
-        "sunarp.governance": "Politica vinculada a JULIO",
+        "sunarp.governance": "Política vinculada a JULIO",
         "midis.inventory": "Inventario + OIA + SGIA",
-        "midis.human": "Supervision significativa",
+        "midis.human": "Supervisión significativa",
         "midis.bias": "Sesgos en intervenciones sociales",
         "mef.inventory": "SGIA para gestionar riesgos",
         "mef.governance": "CGTD lidera y supervisa",
-        "mef.copyright": "No aparece como compromiso autonomo",
+        "mef.copyright": "No aparece como compromiso autónomo",
         "mef.sustainability": "No aparece como eje propio",
-        "osinfor.sustainability": "Impactos sociales, economicos y ambientales",
+        "osinfor.sustainability": "Impactos sociales, económicos y ambientales",
         "osinfor.inventory": "Sin inventario o SGIA expreso",
         "osinfor.governance": "Gobernanza de Internet",
-        "reniec.privacy": "Datos biometricos y registrales",
-        "reniec.transparency": "Aviso en tramites asistidos por IA",
-        "reniec.inventory": "Trazabilidad/auditoria, sin SGIA",
-        "itp.bias": "No aparece como compromiso autonomo",
+        "reniec.privacy": "Datos biométricos y registrales",
+        "reniec.transparency": "Aviso en trámites asistidos por IA",
+        "reniec.inventory": "Trazabilidad/auditoría, sin SGIA",
+        "itp.bias": "No aparece como compromiso autónomo",
         "ceplan.governance": "Principios sin arquitectura operativa",
         "apci.governance": "Incluye gobernanza de internet",
-        "smv-policy.transparency": "Trazabilidad y auditoria",
-        "sunat.governance": "Comite CGTD encargado"
+        "smv-policy.transparency": "Trazabilidad y auditoría",
+        "sunat.governance": "Comité CGTD encargado"
       };
-      return notes[`${id}.${key}`] || (score === 3 ? "Tratado de forma expresa" : score === 2 ? "Presente, menos especifico" : "No central o implicito");
+      return notes[`${id}.${key}`] || (score === 3 ? "Tratado de forma expresa" : score === 2 ? "Presente, menos específico" : "No central o implícito");
     }
 
     function renderCharts(data) {
@@ -2634,15 +2634,15 @@
       document.querySelector("#insights").innerHTML = [
         {
           title: "Convergencia normativa",
-          text: `El principio mas transversal en esta vista es "${mostExplicit.label}" con una cobertura promedio de ${mostExplicit.pct}%. La mayoria replica el nucleo del Reglamento de la Ley 31814.`
+          text: `El principio más transversal en esta vista es "${mostExplicit.label}" con una cobertura promedio de ${mostExplicit.pct}%. La mayoría replica el núcleo del Reglamento de la Ley 31814.`
         },
         {
-          title: "Diferencia mas visible",
-          text: `"${mostUneven.label}" es el eje con mayor variacion. Algunas entidades lo convierten en controles concretos; otras lo dejan como principio declarativo.`
+          title: "Diferencia más visible",
+          text: `"${mostUneven.label}" es el eje con mayor variación. Algunas entidades lo convierten en controles concretos; otras lo dejan como principio declarativo.`
         },
         {
           title: "Madurez operativa",
-          text: `Los documentos con controles mas identificables son: ${withControls || "ninguno en esta vista"}. Ahi aparecen inventarios, SGIA o aprobacion previa.`
+          text: `Los documentos con controles más identificables son: ${withControls || "ninguno en esta vista"}. Ahí aparecen inventarios, SGIA o aprobación previa.`
         }
       ].map((item) => `
         <div class="insight">
@@ -2678,7 +2678,7 @@
     }
     function renderSources() {
       document.querySelector("#sources").innerHTML = institutions.map((inst) => `
-        <li><strong>${inst.name}.</strong> ${inst.instrument}. Fecha de publicacion: ${formatDate(inst.publication)}. ${
+        <li><strong>${inst.name}.</strong> ${inst.instrument}. Fecha de publicación: ${formatDate(inst.publication)}. ${
           inst.source.startsWith("http") ? `<a href="${inst.source}" target="_blank" rel="noreferrer">Fuente oficial</a>` : inst.source
         }</li>
       `).join("");
@@ -2742,8 +2742,8 @@
     document.querySelector("#shareBtn").addEventListener("click", async () => {
       const button = document.querySelector("#shareBtn");
       const shareData = {
-        title: "IALAW | Politicas institucionales de IA",
-        text: "Mapa comparado de politicas peruanas de IA responsable.",
+        title: "IALAW | Políticas institucionales de IA",
+        text: "Mapa comparado de políticas peruanas de IA responsable.",
         url: window.location.href
       };
       try {
