@@ -2260,6 +2260,20 @@
         evidence: "Compromisos sobre derechos fundamentales, sesgos, autor, privacidad de datos biométricos y registrales, calidad de datos, riesgos, transparencia, supervisión humana, gobernanza, trazabilidad, auditoría, sostenibilidad y capacitación.",
         source: "https://www.gob.pe/institucion/reniec/normas-legales/8588960-d000038-2026-reniec-jnac",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
+      },
+      {
+        id: "igp",
+        name: "IGP",
+        longName: "Instituto Geofísico del Perú",
+        sector: "Investigación geofísica y ciencia",
+        instrument: "Resolución de Jefatura Institucional N.° 160-IGP/2026",
+        approval: "2026-09-14",
+        publication: "2026-09-14",
+        focus: "Política institucional de uso seguro, responsable y ético de sistemas basados en IA para investigación científica, sistemas observacionales, análisis de datos, servicios científico-técnicos y gestión institucional.",
+        difference: "Vincula la IA con la integridad científica, trazabilidad y reproducibilidad de métodos y resultados; exige validación y responsabilidad humana identificable cuando la información científico-técnica sustente decisiones públicas o gestión del riesgo de desastres.",
+        evidence: "Alcance obligatorio, principios completos de la Ley y su Reglamento, gestión por niveles de riesgo, evaluación de impacto, supervisión humana, Comité de Gobierno y Transformación Digital, OIA, registro institucional de sistemas de IA y Plan de Acción con indicadores.",
+        source: "https://www.gob.pe/institucion/igp/normas-legales/8621979-160-igp-2026",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
       }
     ];
 
@@ -2275,9 +2289,9 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp"]);
     const state = {
-      selected: "reniec",
+      selected: "igp",
       dateMode: "publication",
       sector: "all",
       search: "",
