@@ -2274,6 +2274,34 @@
         evidence: "Alcance obligatorio, principios completos de la Ley y su Reglamento, gestión por niveles de riesgo, evaluación de impacto, supervisión humana, Comité de Gobierno y Transformación Digital, OIA, registro institucional de sistemas de IA y Plan de Acción con indicadores.",
         source: "https://www.gob.pe/institucion/igp/normas-legales/8621979-160-igp-2026",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
+      },
+      {
+        id: "tc",
+        name: "TC",
+        longName: "Tribunal Constitucional",
+        sector: "Justicia constitucional",
+        instrument: "Resolución Administrativa N.° 115-2025-P/TC",
+        approval: "2025-09-19",
+        publication: "2025-09-22",
+        focus: "Protocolo para regular el uso, implementación, supervisión y mejora de la IA en los procedimientos y la gestión jurisdiccional y administrativa del Tribunal Constitucional.",
+        difference: "Su principal aporte es una protección reforzada del debido proceso: prohíbe sustituir el análisis jurídico y la valoración probatoria, y exige que la IA no comprometa independencia, imparcialidad ni responsabilidad de magistrados.",
+        evidence: "Principios de derechos, transparencia, explicabilidad, privacidad, publicidad y supervisión humana; equipo responsable de IA, aprobación y publicación de implementaciones, documentación exhaustiva, capacitación continua, auditorías y canal confidencial de denuncias.",
+        source: "https://intranet.sedetc.gob.pe/documento/ra-115-2025-p-tc/",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 2, bias: 1, accountability: 3, copyright: 1, training: 3, sustainability: 1, governance: 3, inventory: 3 }
+      },
+      {
+        id: "bnp",
+        name: "BNP",
+        longName: "Biblioteca Nacional del Perú",
+        sector: "Cultura, bibliotecas y patrimonio documental",
+        instrument: "Resolución Jefatural N.° 071-2026-BNP",
+        approval: "2026-08-13",
+        publication: "2026-08-13",
+        focus: "Política institucional de IA para preservar y democratizar el acceso al patrimonio bibliográfico documental, fortalecer el Sistema Nacional de Bibliotecas y mejorar los servicios a la ciudadanía.",
+        difference: "Sobresale por tratar la IA como infraestructura pública de conocimiento y vincularla con soberanía cultural digital, memoria colectiva, diversidad lingüística, interculturalidad y acceso equitativo a la información.",
+        evidence: "Lineamientos expresos sobre derechos, privacidad, no discriminación, transparencia, explicabilidad, riesgos, supervisión humana, autor, sostenibilidad, capacitación, interoperabilidad, SGIA basado en NTP-ISO/IEC 42001:2025 y etiquetado de resultados asistidos por IA.",
+        source: "https://www.gob.pe/institucion/bnp/normas-legales/8485847-071-2026-bnp",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
       }
     ];
 
@@ -2289,7 +2317,7 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp"]);
     const state = {
       selected: "igp",
       dateMode: "publication",
@@ -2536,6 +2564,12 @@
         "reniec.privacy": "Datos biométricos y registrales",
         "reniec.transparency": "Aviso en trámites asistidos por IA",
         "reniec.inventory": "Trazabilidad/auditoría, sin SGIA",
+        "tc.risk": "Capacitación en riesgos, sin modelo específico",
+        "tc.bias": "No aparece como eje autónomo",
+        "tc.copyright": "No aparece como eje autónomo",
+        "tc.sustainability": "No aparece como eje autónomo",
+        "tc.inventory": "Aprobación y documentación de cada implementación",
+        "bnp.inventory": "SGIA para el ciclo de vida",
         "itp.bias": "No aparece como compromiso autónomo",
         "ceplan.governance": "Principios sin arquitectura operativa",
         "apci.governance": "Incluye gobernanza de internet",
