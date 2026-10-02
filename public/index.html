@@ -1685,6 +1685,194 @@
       overflow-x: clip;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      margin: 16px 0 6px;
+      border-bottom: 2px solid var(--ialaw-yellow);
+    }
+
+    .view-tab {
+      min-height: 42px;
+      border: 1px solid rgba(1, 30, 244, .24);
+      border-bottom: 0;
+      padding: 10px 16px;
+      background: var(--white);
+      color: var(--ialaw-blue);
+      font-weight: 800;
+    }
+
+    .view-tab + .view-tab {
+      border-left: 0;
+    }
+
+    .view-tab.active {
+      background: var(--ialaw-blue);
+      color: var(--white);
+    }
+
+    .view-tab:focus-visible,
+    .oia-card a:focus-visible {
+      outline: 3px solid var(--ialaw-yellow);
+      outline-offset: 2px;
+    }
+
+    .oia-view {
+      display: grid;
+      gap: 18px;
+      padding-top: 24px;
+    }
+
+    .oia-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 26px;
+      align-items: end;
+    }
+
+    .oia-hero h1 {
+      font-size: clamp(36px, 5vw, 64px);
+    }
+
+    .oia-directory-panel .panel-head {
+      align-items: center;
+    }
+
+    .oia-directory-panel .control {
+      width: min(340px, 100%);
+    }
+
+    .oia-directory {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .oia-card {
+      display: grid;
+      gap: 10px;
+      min-height: 226px;
+      padding: 16px;
+      border: 1px solid rgba(1, 30, 244, .22);
+      border-top: 5px solid var(--ialaw-yellow);
+      background: var(--white);
+    }
+
+    .oia-card h3 {
+      margin: 0;
+      color: var(--ialaw-blue);
+      font-size: 21px;
+      line-height: 1.08;
+    }
+
+    .oia-card .oia-person {
+      margin: 0;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .oia-card .oia-role,
+    .oia-card .oia-instrument {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .oia-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin-top: auto;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .oia-card-footer a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .oia-comparison-panel .panel-head {
+      align-items: center;
+    }
+
+    .oia-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+      min-width: max-content;
+    }
+
+    .oia-status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 4px 8px;
+      border: 1px solid currentColor;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .oia-status.direct { color: var(--ialaw-blue); background: #eef1ff; }
+    .oia-status.reference { color: #926600; background: #fff6cf; }
+    .oia-status.none { color: #8d3434; background: #fff0f0; }
+
+    .oia-matrix-wrap table {
+      min-width: 960px;
+    }
+
+    .oia-matrix-wrap th:first-child,
+    .oia-matrix-wrap td:first-child {
+      min-width: 270px;
+      max-width: 270px;
+    }
+
+    .oia-matrix-wrap td {
+      min-width: 155px;
+      vertical-align: middle;
+    }
+
+    .oia-matrix-wrap .oia-status {
+      white-space: nowrap;
+    }
+
+    .oia-insights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .oia-insight {
+      min-height: 156px;
+      padding: 16px;
+      border: 1px solid rgba(1, 30, 244, .2);
+      border-top: 5px solid var(--ialaw-blue);
+      background: var(--white);
+    }
+
+    .oia-insight h3 {
+      margin: 0 0 8px;
+      color: var(--ialaw-blue);
+      font-size: 16px;
+    }
+
+    .oia-insight p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
     .panel {
       overflow: hidden;
     }
@@ -1825,6 +2013,26 @@
       main > .grid:first-child .deadline-dashboard {
         grid-template-columns: 1fr;
       }
+
+      .oia-hero,
+      .oia-insights {
+        grid-template-columns: 1fr;
+      }
+
+      .oia-directory {
+        grid-template-columns: 1fr;
+      }
+
+      .oia-directory-panel .panel-head,
+      .oia-comparison-panel .panel-head {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .oia-legend {
+        justify-content: flex-start;
+        min-width: 0;
+      }
     }
   </style>
 </head>
@@ -1836,7 +2044,7 @@
         <img class="logo" src="/ialaw-assets/ialaw-horizontal-blue-bg.png" alt="IALAW DIGITAL LAWYERS" />
         <div><span>Observatorio normativo de inteligencia artificial</span></div>
       </div>
-      <div class="toolbar" aria-label="Controles principales">
+      <div class="toolbar" id="policyControls" aria-label="Controles de políticas">
         <input id="search" class="control" type="search" placeholder="Buscar institución, principio o rasgo" />
         <select id="sectorFilter" class="control" aria-label="Filtrar por sector">
           <option value="all">Todos los sectores</option>
@@ -1845,7 +2053,12 @@
       </div>
     </header>
 
-    <section class="hero">
+    <nav class="view-tabs" aria-label="Vistas del observatorio">
+      <button class="view-tab active" id="policiesTab" type="button" aria-controls="policyHero" aria-selected="true">Políticas de IA</button>
+      <button class="view-tab" id="oiaTab" type="button" aria-controls="oiaView" aria-selected="false">Oficiales de IA</button>
+    </nav>
+
+    <section class="hero policy-view" id="policyHero">
       <div>
         <h1>Mapa comparado de políticas peruanas de IA responsable</h1>
         <p class="lead">Dashboard interactivo sobre similitudes, diferencias, cobertura de principios y secuencia de aprobación de las políticas institucionales de uso ético, seguro y responsable de inteligencia artificial.</p>
@@ -1853,7 +2066,7 @@
       <div class="summary" id="summary"></div>
     </section>
 
-    <main id="main">
+    <main id="main" class="policy-view">
       <section class="grid">
         <article class="panel">
           <div class="panel-head">
@@ -1977,6 +2190,53 @@
         </div>
       </section>
     </main>
+    <section class="oia-view" id="oiaView" aria-labelledby="oiaTitle" hidden>
+      <div class="oia-hero">
+        <div>
+          <p class="eyebrow">Gobierno y gestión institucional</p>
+          <h1 id="oiaTitle">Oficiales de Inteligencia Artificial</h1>
+          <p class="lead">Consulta las designaciones formalizadas y contrasta el nivel de desarrollo de sus funciones en cada acto administrativo.</p>
+        </div>
+        <div class="summary" id="oiaSummary"></div>
+      </div>
+
+      <section class="panel oia-directory-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Designaciones registradas</h2>
+            <p>Información extraída de las resoluciones oficiales revisadas.</p>
+          </div>
+          <input id="oiaSearch" class="control" type="search" placeholder="Buscar entidad, persona o función" aria-label="Buscar designación de Oficial de IA" />
+        </div>
+        <div class="oia-directory" id="oiaDirectory"></div>
+      </section>
+
+      <section class="panel oia-comparison-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Comparación de funciones</h2>
+            <p>“Directa” identifica una función detallada en la resolución; “por remisión”, una función atribuida mediante referencia expresa a la ENIA; “no señalada”, ausencia de desarrollo adicional en el acto.</p>
+          </div>
+          <div class="oia-legend" aria-label="Leyenda de nivel de detalle">
+            <span class="oia-status direct">Directa</span>
+            <span class="oia-status reference">Por remisión</span>
+            <span class="oia-status none">No señalada</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="matrix-scroll-nav oia-scroll-nav" aria-label="Navegación horizontal de la matriz de funciones">
+            <button class="matrix-scroll-btn" id="oiaScrollLeft" type="button" aria-label="Ver columnas anteriores">‹</button>
+            <input class="matrix-scroll-range" id="oiaScrollRange" type="range" min="0" max="0" value="0" step="1" aria-label="Desplazamiento horizontal de la matriz de funciones" />
+            <button class="matrix-scroll-btn" id="oiaScrollRight" type="button" aria-label="Ver columnas siguientes">›</button>
+          </div>
+          <div class="matrix-wrap oia-matrix-wrap" id="oiaMatrixWrap">
+            <table id="oiaFunctionMatrix"></table>
+          </div>
+        </div>
+      </section>
+
+      <section class="oia-insights" id="oiaInsights" aria-label="Hallazgos sobre funciones de los Oficiales de IA"></section>
+    </section>
     <footer class="site-footer">
       <div class="footer-contact">
         <p>+51 1 3996491</p>
@@ -2305,6 +2565,67 @@
       }
     ];
 
+    const oiaDesignations = [
+      {
+        id: "reniec",
+        entity: "RENIEC",
+        longName: "Registro Nacional de Identificación y Estado Civil",
+        date: "2026-09-08",
+        person: "Ramón Johny Pretell Cruzado",
+        role: "Jefe de la Unidad de Gobierno de Tecnologías de la Información y Oficial de Gobierno de Datos",
+        modality: "En adición a sus funciones",
+        instrument: "Resolución Secretarial N.° D000030-2026-RENIEC/SGEN",
+        source: "https://www.gob.pe/institucion/reniec/normas-legales/8586203-d000030-2026-reniec-sgen",
+        detail: "La resolución atribuye al Oficial de IA las funciones previstas en la ENIA para coordinación, plan de acción, casos de uso y seguimiento."
+      },
+      {
+        id: "smv",
+        entity: "SMV",
+        longName: "Superintendencia del Mercado de Valores",
+        date: "2026-09-08",
+        person: "Alejandro Julio Rabanal Sobrino",
+        role: "Superintendente Adjunto de la Superintendencia Adjunta de Riesgos",
+        modality: "Funciones detalladas en la resolución",
+        instrument: "Resolución de Superintendente N.° 096-2026-SMV/02",
+        source: "https://www.gob.pe/institucion/smv/normas-legales/8580214-096-2026-smv-02",
+        detail: "Establece coordinación, formulación del Plan de Acción, evaluación de modelos de alto riesgo, reporte trimestral y registro de avances."
+      },
+      {
+        id: "minsa",
+        entity: "MINSA",
+        longName: "Ministerio de Salud",
+        date: "2026-09-30",
+        person: "Jaime Gutierrez Rosas",
+        role: "Director General de la Oficina General de Tecnologías de la Información",
+        modality: "Designación formal; el acto no desarrolla funciones adicionales",
+        instrument: "Resolución Secretarial N.° D000256-2026-SG-MINSA",
+        source: "https://www.gob.pe/institucion/minsa/normas-legales/8660688-256-2026-sg-minsa",
+        detail: "La resolución formaliza la designación y remite al marco general aplicable, sin detallar un catálogo adicional de funciones en su parte resolutiva."
+      },
+      {
+        id: "pronatel",
+        entity: "PRONATEL",
+        longName: "Programa Nacional de Telecomunicaciones",
+        date: "2026-09-30",
+        person: "Jashimi Alfredo Sugaya Vásquez",
+        role: "Oficial de Seguridad y Confianza Digital",
+        modality: "En adición a sus funciones",
+        instrument: "Resolución de Dirección Ejecutiva N.° I000179-2026-MTC/24-DE",
+        source: "https://www.gob.pe/institucion/pronatel/normas-legales/8664215-i000179-2026-mtc-24-de",
+        detail: "La resolución remite a la ENIA para coordinación, planificación de casos de uso, formulación del Plan de Acción y reporte de avances."
+      }
+    ];
+
+    const oiaFunctions = [
+      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference" },
+      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference" },
+      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference" },
+      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference" },
+      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none" },
+      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none" },
+      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none" }
+    ];
+
 
     const publicSectorDeadlines = [
       { entity: "Poder Ejecutivo, Legislativo y Judicial", term: "1 año", deadline: "10 de setiembre de 2026", current: true },
@@ -2324,7 +2645,9 @@
       sector: "all",
       search: "",
       principle: "all",
-      onlyGaps: false
+      onlyGaps: false,
+      activeView: window.location.hash === "#oia" ? "oia" : "policies",
+      oiaSearch: ""
     };
 
     const formatDate = (iso) => {
@@ -2732,6 +3055,111 @@
       `).join("");
     }
 
+    function oiaStatusMeta(status) {
+      if (status === "direct") return { label: "Directa", className: "direct" };
+      if (status === "reference") return { label: "Por remisión", className: "reference" };
+      return { label: "No señalada", className: "none" };
+    }
+
+    function renderOiaFunctionMatrix() {
+      const columns = oiaDesignations;
+      const header = "<thead><tr><th>Función</th>" + columns.map((item) => "<th>" + item.entity + "</th>").join("") + "</tr></thead>";
+      const body = "<tbody>" + oiaFunctions.map((row) => {
+        const cells = columns.map((item) => {
+          const status = oiaStatusMeta(row[item.id]);
+          return "<td><span class=\"oia-status " + status.className + "\">" + status.label + "</span></td>";
+        }).join("");
+        return "<tr><th>" + row.label + "</th>" + cells + "</tr>";
+      }).join("") + "</tbody>";
+      document.querySelector("#oiaFunctionMatrix").innerHTML = header + body;
+      window.requestAnimationFrame(syncOiaScrollNav);
+    }
+
+    function renderOia() {
+      const query = state.oiaSearch.trim().toLowerCase();
+      const data = oiaDesignations
+        .filter((item) => !query || [item.entity, item.longName, item.person, item.role, item.instrument, item.detail].join(" ").toLowerCase().includes(query))
+        .sort((a, b) => b.date.localeCompare(a.date) || a.entity.localeCompare(b.entity));
+
+      document.querySelector("#oiaSummary").innerHTML = [
+        { label: "Designaciones", value: oiaDesignations.length, note: "actos administrativos revisados" },
+        { label: "Última designación", value: "PRONATEL", note: formatDate("2026-09-30") },
+        { label: "Funciones directas", value: "5", note: "detalladas por la SMV" },
+        { label: "Por remisión", value: "2", note: "RENIEC y PRONATEL" }
+      ].map((item) => "<div class=\"metric\"><span>" + item.label + "</span><strong>" + item.value + "</strong><small>" + item.note + "</small></div>").join("");
+
+      document.querySelector("#oiaDirectory").innerHTML = data.length ? data.map((item) => `
+        <article class=\"oia-card\">
+          <div class=\"oia-card-head\">
+            <div><h3>${item.entity}</h3><p>${item.longName}</p></div>
+            <time>${formatDate(item.date)}</time>
+          </div>
+          <p class="oia-person">${item.person}</p>
+          <p class="oia-role">${item.role}</p>
+          <p class="oia-modality">${item.modality}</p>
+          <p class="oia-detail">${item.detail}</p>
+          <p class="oia-source"><strong>Instrumento:</strong> ${item.instrument}</p>
+          <a href="${item.source}" target="_blank" rel="noreferrer">Ver fuente oficial</a>
+        </article>
+      `).join("") : "<p class=\"empty-state\">No encontramos designaciones que coincidan con la búsqueda.</p>";
+
+      renderOiaFunctionMatrix();
+      document.querySelector("#oiaInsights").innerHTML = [
+        {
+          title: "Mayor desarrollo operativo",
+          text: "La SMV es la única resolución revisada que detalla directamente un catálogo operativo: coordinación, Plan de Acción, modelos de alto riesgo, reporte trimestral y registro de avances."
+        },
+        {
+          title: "Funciones por remisión",
+          text: "RENIEC y PRONATEL designan al Oficial de IA y remiten expresamente a la ENIA. Esa técnica incorpora el marco general, pero dificulta identificar responsabilidades concretas desde el propio acto."
+        },
+        {
+          title: "Oportunidad de estandarización",
+          text: "Las próximas designaciones pueden reforzar la trazabilidad incluyendo funciones, entregables, periodicidad de reportes, articulación con el Comité de Gobierno y Transformación Digital y criterios de rendición de cuentas."
+        }
+      ].map((item) => "<article class=\"oia-insight\"><h2>" + item.title + "</h2><p>" + item.text + "</p></article>").join("");
+    }
+
+    function syncOiaScrollNav() {
+      const wrap = document.querySelector("#oiaMatrixWrap");
+      const range = document.querySelector("#oiaScrollRange");
+      const left = document.querySelector("#oiaScrollLeft");
+      const right = document.querySelector("#oiaScrollRight");
+      if (!wrap || !range || !left || !right) return;
+      const max = Math.max(0, wrap.scrollWidth - wrap.clientWidth);
+      range.max = Math.ceil(max);
+      range.value = Math.round(wrap.scrollLeft);
+      left.disabled = wrap.scrollLeft <= 1;
+      right.disabled = wrap.scrollLeft >= max - 1;
+    }
+
+    function scrollOiaBy(direction) {
+      const wrap = document.querySelector("#oiaMatrixWrap");
+      if (!wrap) return;
+      wrap.scrollBy({ left: direction * Math.max(280, wrap.clientWidth * .72), behavior: "smooth" });
+    }
+
+    function setActiveView(view, updateHash = true) {
+      const isOia = view === "oia";
+      state.activeView = isOia ? "oia" : "policies";
+      document.querySelector("#policiesTab").classList.toggle("active", !isOia);
+      document.querySelector("#policiesTab").setAttribute("aria-selected", String(!isOia));
+      document.querySelector("#oiaTab").classList.toggle("active", isOia);
+      document.querySelector("#oiaTab").setAttribute("aria-selected", String(isOia));
+      document.querySelector("#policyControls").hidden = isOia;
+      document.querySelector("#policyHero").hidden = isOia;
+      document.querySelector("#main").hidden = isOia;
+      document.querySelector("#oiaView").hidden = !isOia;
+      if (isOia) {
+        renderOia();
+      }
+      if (updateHash) {
+        const url = new URL(window.location.href);
+        url.hash = isOia ? "oia" : "";
+        window.history.replaceState(null, "", url);
+      }
+    }
+
     function render() {
       const data = filteredInstitutions();
       renderSummary(data);
@@ -2764,6 +3192,23 @@
       state.onlyGaps = event.target.checked;
       render();
     });
+
+    document.querySelector("#policiesTab").addEventListener("click", () => setActiveView("policies"));
+    document.querySelector("#oiaTab").addEventListener("click", () => setActiveView("oia"));
+    document.querySelector("#oiaSearch").addEventListener("input", (event) => {
+      state.oiaSearch = event.target.value;
+      renderOia();
+    });
+    document.querySelector("#oiaMatrixWrap").addEventListener("scroll", syncOiaScrollNav, { passive: true });
+    document.querySelector("#oiaScrollRange").addEventListener("input", (event) => {
+      const wrap = document.querySelector("#oiaMatrixWrap");
+      if (!wrap) return;
+      wrap.scrollLeft = Number(event.target.value);
+      syncOiaScrollNav();
+    });
+    document.querySelector("#oiaScrollLeft").addEventListener("click", () => scrollOiaBy(-1));
+    document.querySelector("#oiaScrollRight").addEventListener("click", () => scrollOiaBy(1));
+    window.addEventListener("hashchange", () => setActiveView(window.location.hash === "#oia" ? "oia" : "policies", false));
 
     document.querySelector(".matrix-wrap")?.addEventListener("scroll", syncMatrixScrollNav, { passive: true });
     document.querySelector("#matrixScrollRange")?.addEventListener("input", (event) => {
@@ -2811,6 +3256,8 @@
 
     renderFilters();
     render();
+    renderOia();
+    setActiveView(state.activeView, false);
   </script>
 </body>
 </html>
