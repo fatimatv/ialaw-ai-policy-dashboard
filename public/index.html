@@ -2562,6 +2562,20 @@
         evidence: "Lineamientos expresos sobre derechos, privacidad, no discriminación, transparencia, explicabilidad, riesgos, supervisión humana, autor, sostenibilidad, capacitación, interoperabilidad, SGIA basado en NTP-ISO/IEC 42001:2025 y etiquetado de resultados asistidos por IA.",
         source: "https://www.gob.pe/institucion/bnp/normas-legales/8485847-071-2026-bnp",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
+      },
+      {
+        id: "minsa-policy",
+        name: "MINSA",
+        longName: "Ministerio de Salud",
+        sector: "Salud",
+        instrument: "Resolución Ministerial N.° 903-2026/MINSA",
+        approval: "2026-10-02",
+        publication: "2026-10-06",
+        focus: "Lineamientos de política institucional para el uso seguro, responsable y ético de sistemas basados en IA en los procesos y servicios del MINSA.",
+        difference: "Es una de las políticas más operativas y sectorializadas: exige inventario institucional, clasificación de riesgo, evaluación de impacto y puertas de control durante todo el ciclo de vida, con salvaguardas reforzadas para datos de salud y decisiones clínicas.",
+        evidence: "Principios completos, SGIA basado en NTP-ISO/IEC 42001:2025, inventario, autorizaciones previas, evaluación de impacto, supervisión humana, controles para IA generativa, gestión de incidentes, auditorías, revisión anual y responsabilidades expresas del OIA, OGTI y Comité.",
+        source: "https://busquedas.elperuano.pe/dispositivo/NL/2561601-1",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
       }
     ];
 
@@ -2638,7 +2652,7 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp", "minsa-policy"]);
     const state = {
       selected: "igp",
       dateMode: "publication",
