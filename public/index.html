@@ -2627,17 +2627,29 @@
         instrument: "Resolución de Dirección Ejecutiva N.° I000179-2026-MTC/24-DE",
         source: "https://www.gob.pe/institucion/pronatel/normas-legales/8664215-i000179-2026-mtc-24-de",
         detail: "La resolución remite a la ENIA para coordinación, planificación de casos de uso, formulación del Plan de Acción y reporte de avances."
+      },
+      {
+        id: "proinversion",
+        entity: "PROINVERSIÓN",
+        longName: "Agencia de Promoción de la Inversión Privada",
+        date: "2026-10-02",
+        person: "Julio César Maldonado Álvarez",
+        role: "Miembro del Comité de Gobierno y Transformación Digital, especialista en materia de inteligencia artificial",
+        modality: "Funciones por remisión expresa a la ENIA",
+        instrument: "Resolución de la Gerencia General N.° 00147-2026",
+        source: "https://www.gob.pe/institucion/proinversion/normas-legales/8685704-147-2026",
+        detail: "La resolución remite a los artículos 6 y 8 de la ENIA para la coordinación, formulación del Plan de Acción, seguimiento, reporte trimestral y registro de avances."
       }
     ];
 
     const oiaFunctions = [
-      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference" },
-      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference" },
-      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference" },
-      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference" },
-      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none" },
-      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none" },
-      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none" }
+      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference" },
+      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference" },
+      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none" },
+      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference" },
+      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference" },
+      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none" },
+      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference" }
     ];
 
 
@@ -3097,9 +3109,9 @@
 
       document.querySelector("#oiaSummary").innerHTML = [
         { label: "Designaciones", value: oiaDesignations.length, note: "actos administrativos revisados" },
-        { label: "Última designación", value: "PRONATEL", note: formatDate("2026-09-30") },
+        { label: "Última designación", value: "PROINVERSIÓN", note: formatDate("2026-10-02") },
         { label: "Funciones directas", value: "5", note: "detalladas por la SMV" },
-        { label: "Por remisión", value: "2", note: "RENIEC y PRONATEL" }
+        { label: "Por remisión", value: "3", note: "RENIEC, PRONATEL y PROINVERSIÓN" }
       ].map((item) => "<div class=\"metric\"><span>" + item.label + "</span><strong>" + item.value + "</strong><small>" + item.note + "</small></div>").join("");
 
       document.querySelector("#oiaDirectory").innerHTML = data.length ? data.map((item) => `
