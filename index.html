@@ -2639,17 +2639,29 @@
         instrument: "Resolución de la Gerencia General N.° 00147-2026",
         source: "https://www.gob.pe/institucion/proinversion/normas-legales/8685704-147-2026",
         detail: "La resolución remite a los artículos 6 y 8 de la ENIA para la coordinación, formulación del Plan de Acción, seguimiento, reporte trimestral y registro de avances."
+      },
+      {
+        id: "sineace",
+        entity: "SINEACE",
+        longName: "Consejo Superior del Sistema Nacional de Evaluación, Acreditación y Certificación de la Calidad Educativa",
+        date: "2026-10-06",
+        person: "Edward Joseph Rodríguez Victorio",
+        role: "Miembro del Comité de Gobierno y Transformación Digital",
+        modality: "En adición a sus funciones; funciones por remisión a la ENIA",
+        instrument: "Resolución de Gerencia General N.° 000003-2026-COSUSINEACE/PE-GG",
+        source: "https://www.gob.pe/institucion/sineace/normas-legales/8696993-000003-2026-cosusineace-pe-gg",
+        detail: "La resolución remite al artículo 6 de la ENIA para la coordinación de la gestión de IA, la planificación de casos de uso y la formulación del Plan de Acción."
       }
     ];
 
     const oiaFunctions = [
-      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference" },
-      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference" },
-      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none" },
-      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference" },
-      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference" },
-      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none" },
-      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference" }
+      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference" },
+      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference" },
+      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none", sineace: "reference" },
+      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "none" },
+      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "reference" },
+      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none", sineace: "none" },
+      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "none" }
     ];
 
 
@@ -3109,9 +3121,9 @@
 
       document.querySelector("#oiaSummary").innerHTML = [
         { label: "Designaciones", value: oiaDesignations.length, note: "actos administrativos revisados" },
-        { label: "Última designación", value: "PROINVERSIÓN", note: formatDate("2026-10-02") },
+        { label: "Última designación", value: "SINEACE", note: formatDate("2026-10-06") },
         { label: "Funciones directas", value: "5", note: "detalladas por la SMV" },
-        { label: "Por remisión", value: "3", note: "RENIEC, PRONATEL y PROINVERSIÓN" }
+        { label: "Por remisión", value: "4", note: "RENIEC, PRONATEL, PROINVERSIÓN y SINEACE" }
       ].map((item) => "<div class=\"metric\"><span>" + item.label + "</span><strong>" + item.value + "</strong><small>" + item.note + "</small></div>").join("");
 
       document.querySelector("#oiaDirectory").innerHTML = data.length ? data.map((item) => `
@@ -3137,7 +3149,7 @@
         },
         {
           title: "Funciones por remisión",
-          text: "RENIEC y PRONATEL designan al Oficial de IA y remiten expresamente a la ENIA. Esa técnica incorpora el marco general, pero dificulta identificar responsabilidades concretas desde el propio acto."
+          text: "RENIEC, PRONATEL, PROINVERSIÓN y SINEACE designan al Oficial de IA y remiten expresamente a la ENIA. Esa técnica incorpora el marco general, pero dificulta identificar responsabilidades concretas desde el propio acto."
         },
         {
           title: "Oportunidad de estandarización",
