@@ -2665,17 +2665,29 @@
         instrument: "Resolución de Gerencia General N.° 000003-2026-COSUSINEACE/PE-GG",
         source: "https://www.gob.pe/institucion/sineace/normas-legales/8696993-000003-2026-cosusineace-pe-gg",
         detail: "La resolución remite al artículo 6 de la ENIA para la coordinación de la gestión de IA, la planificación de casos de uso y la formulación del Plan de Acción."
+      },
+      {
+        id: "ipen",
+        entity: "IPEN",
+        longName: "Instituto Peruano de Energía Nuclear",
+        date: "2026-10-07",
+        person: "No consignado en la resolución publicada",
+        role: "Director de la Dirección de Transferencia Tecnológica",
+        modality: "En adición a sus funciones; funciones por remisión a la ENIA",
+        instrument: "Resolución de Gerencia General N.° 035-2026-IPEN/GRAL",
+        source: "https://www.gob.pe/institucion/ipen/normas-legales/8698576-035-2026-ipen-gral",
+        detail: "La resolución designa al Director de Transferencia Tecnológica y recoge el marco de la ENIA sobre identificación, diseño y planificación de casos de uso y soluciones de IA, así como la supervisión estratégica de su implementación."
       }
     ];
 
     const oiaFunctions = [
-      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference" },
-      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference" },
-      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none", sineace: "reference" },
-      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "none" },
-      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "reference" },
-      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none", sineace: "none" },
-      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "none" }
+      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference" },
+      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference" },
+      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none", sineace: "reference", ipen: "reference" },
+      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "none", ipen: "reference" },
+      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "reference", ipen: "none" },
+      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none", sineace: "none", ipen: "none" },
+      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "none", ipen: "none" }
     ];
 
 
@@ -3139,9 +3151,9 @@
 
       document.querySelector("#oiaSummary").innerHTML = [
         { label: "Designaciones", value: oiaDesignations.length, note: "actos administrativos revisados" },
-        { label: "Última designación", value: "SINEACE", note: formatDate("2026-10-06") },
+        { label: "Última designación", value: "IPEN", note: formatDate("2026-10-07") },
         { label: "Funciones directas", value: "5", note: "detalladas por la SMV" },
-        { label: "Por remisión", value: "4", note: "RENIEC, PRONATEL, PROINVERSIÓN y SINEACE" }
+        { label: "Por remisión", value: "5", note: "RENIEC, PRONATEL, PROINVERSIÓN, SINEACE e IPEN" }
       ].map((item) => "<div class=\"metric\"><span>" + item.label + "</span><strong>" + item.value + "</strong><small>" + item.note + "</small></div>").join("");
 
       document.querySelector("#oiaDirectory").innerHTML = data.length ? data.map((item) => `
