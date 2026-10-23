@@ -2578,6 +2578,34 @@
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
       },
       {
+        id: "amazonas",
+        name: "Amazonas",
+        longName: "Gobierno Regional Amazonas",
+        sector: "Gobierno regional",
+        instrument: "Política Institucional para el Uso Seguro, Responsable y Ético de la Inteligencia Artificial del Gobierno Regional Amazonas",
+        approval: null,
+        publication: "2026-10-09",
+        focus: "Política obligatoria para usar IA en la gestión regional, servicios públicos y decisiones institucionales, con aplicación sectorial en salud, educación, ambiente, infraestructura y otros ámbitos regionales.",
+        difference: "Destaca por su matriz sectorial de casos de uso, que clasifica aplicaciones como promovidas, controladas, de alto riesgo o no permitidas, y por sus criterios mínimos para evaluar cada nuevo proyecto de IA.",
+        evidence: "Principios, usos permitidos, controles reforzados, prohibiciones, revisión humana, protección de datos, gobernanza por el Comité de Gobierno y Transformación Digital, niveles de implementación, capacitación, matriz sectorial y criterios de evaluación con trazabilidad, contingencia e intervención humana.",
+        source: "https://www.gob.pe/institucion/regionamazonas/informes-publicaciones/8704301-politica-institucional-para-el-uso-seguro-responsable-y-etico-de-la-inteligencia-artificial-del-gobierno-regional-amazonas",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 1, governance: 3, inventory: 3 }
+      },
+      {
+        id: "sunass-policy",
+        name: "SUNASS",
+        longName: "Superintendencia Nacional de Servicios de Saneamiento",
+        sector: "Regulación de saneamiento",
+        instrument: "Resolución de Presidencia Ejecutiva N.° 00044-2026-SUNASS-PE / Política GDI-DES-PI008, versión 001",
+        approval: "2026-10-14",
+        publication: "2026-10-14",
+        focus: "Política institucional para desarrollar, implementar y usar IA en regulación, supervisión, fiscalización, gestión y atención a personas usuarias de los servicios de saneamiento.",
+        difference: "Destaca por comprometer un SGIA alineado con NTP-ISO/IEC 42001, integrar iniciativas de IA al planeamiento institucional y establecer mecanismos para atender alertas, incidentes, consultas y denuncias.",
+        evidence: "Compromisos sobre SGIA, derechos, igualdad, sesgos, autor, privacidad, seguridad, gestión proporcional de riesgos, transparencia, explicabilidad, trazabilidad, supervisión humana, planeamiento, capacitación, sostenibilidad, gestión de incidentes y requisitos aplicables.",
+        source: "https://www.gob.pe/institucion/sunass/normas-legales/8722362-00044-2026-sunass-pe",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
+      },
+      {
         id: "sunafil",
         name: "SUNAFIL",
         longName: "Superintendencia Nacional de Fiscalización Laboral",
@@ -2766,7 +2794,7 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp", "minsa-policy", "sunafil", "seman", "jne"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp", "minsa-policy", "amazonas", "sunass-policy", "sunafil", "seman", "jne"]);
     const state = {
       selected: "igp",
       dateMode: "publication",
