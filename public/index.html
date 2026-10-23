@@ -2705,17 +2705,53 @@
         instrument: "Resolución de Gerencia General N.° 035-2026-IPEN/GRAL",
         source: "https://www.gob.pe/institucion/ipen/normas-legales/8698576-035-2026-ipen-gral",
         detail: "La resolución designa al Director de Transferencia Tecnológica y recoge el marco de la ENIA sobre identificación, diseño y planificación de casos de uso y soluciones de IA, así como la supervisión estratégica de su implementación."
+      },
+      {
+        id: "uniadi",
+        entity: "UNIADI",
+        longName: "Universidad Nacional Intercultural Aimara de Ilave",
+        date: "2026-05-29",
+        person: "René Leonidas Araujo Cotacallapa",
+        role: "Jefe de la Oficina de Tecnologías de la Información",
+        modality: "En adición a sus funciones, sin percepción económica adicional",
+        instrument: "Resolución de Comisión Organizadora N.° 024-2026-UNIADI/CO",
+        source: "https://www.gob.pe/institucion/uniadi/normas-legales/8266049-024-2026-uniadi-co",
+        detail: "Encarga coordinar, dar seguimiento y articular las acciones institucionales para la implementación y gobernanza de IA; además, dispone que la OTI proponga lineamientos internos para su uso responsable, ético y seguro."
+      },
+      {
+        id: "lurigancho",
+        entity: "Lurigancho Chosica",
+        longName: "Municipalidad Distrital de Lurigancho Chosica",
+        date: "2026-07-27",
+        person: "Luis Rafael Vivanco Medina",
+        role: "Jefe de la Oficina de Gestión de Gobierno Digital",
+        modality: "En adición a sus funciones; funciones detalladas en la resolución",
+        instrument: "Resolución de Alcaldía N.° 248-2026/MDL",
+        source: "https://www.gob.pe/institucion/munilurigancho/normas-legales/8447601-248-2026-mdl",
+        detail: "Establece coordinación de la gestión de IA, formulación y seguimiento del Plan de Acción, gestión de riesgos, promoción de principios, recomendaciones técnicas, lineamientos, capacitación e informes sobre la implementación."
+      },
+      {
+        id: "sunass",
+        entity: "SUNASS",
+        longName: "Superintendencia Nacional de Servicios de Saneamiento",
+        date: "2026-08-28",
+        person: "No consignado en la resolución publicada",
+        role: "Oficial de Seguridad y Confianza Digital",
+        modality: "Funciones por remisión al marco de la ENIA",
+        instrument: "Resolución de Gerencia General N.° 00159-2026-SUNASS-GG",
+        source: "https://www.gob.pe/institucion/sunass/normas-legales/8538457-159-2026-sunass-gg",
+        detail: "La resolución designa a la Oficial de Seguridad y Confianza Digital y recoge el marco de la ENIA sobre planificación de casos de uso y supervisión estratégica de la implementación de IA."
       }
     ];
 
     const oiaFunctions = [
-      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference" },
-      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference" },
-      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none", sineace: "reference", ipen: "reference" },
-      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "none", ipen: "reference" },
-      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "reference", ipen: "none" },
-      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none", sineace: "none", ipen: "none" },
-      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "none", ipen: "none" }
+      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference", uniadi: "direct", lurigancho: "direct", sunass: "reference" },
+      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference", uniadi: "none", lurigancho: "direct", sunass: "reference" },
+      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none", sineace: "reference", ipen: "reference", uniadi: "none", lurigancho: "none", sunass: "reference" },
+      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "none", ipen: "reference", uniadi: "direct", lurigancho: "direct", sunass: "reference" },
+      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "reference", ipen: "none", uniadi: "none", lurigancho: "direct", sunass: "none" },
+      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none", sineace: "none", ipen: "none", uniadi: "none", lurigancho: "none", sunass: "none" },
+      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "none", ipen: "none", uniadi: "none", lurigancho: "none", sunass: "none" }
     ];
 
 
@@ -3176,12 +3212,20 @@
       const data = oiaDesignations
         .filter((item) => !query || [item.entity, item.longName, item.person, item.role, item.instrument, item.detail].join(" ").toLowerCase().includes(query))
         .sort((a, b) => b.date.localeCompare(a.date) || a.entity.localeCompare(b.entity));
+      const latestDesignation = oiaDesignations
+        .slice()
+        .sort((a, b) => b.date.localeCompare(a.date) || a.entity.localeCompare(b.entity))[0];
+      const directFunctions = oiaFunctions.reduce((total, row) => total + oiaDesignations.filter((item) => row[item.id] === "direct").length, 0);
+      const referencedDesignations = oiaDesignations.filter((item) => {
+        const statuses = oiaFunctions.map((row) => row[item.id]);
+        return !statuses.includes("direct") && statuses.includes("reference");
+      });
 
       document.querySelector("#oiaSummary").innerHTML = [
         { label: "Designaciones", value: oiaDesignations.length, note: "actos administrativos revisados" },
-        { label: "Última designación", value: "IPEN", note: formatDate("2026-10-07") },
-        { label: "Funciones directas", value: "5", note: "detalladas por la SMV" },
-        { label: "Por remisión", value: "5", note: "RENIEC, PRONATEL, PROINVERSIÓN, SINEACE e IPEN" }
+        { label: "Última designación", value: latestDesignation.entity, note: formatDate(latestDesignation.date) },
+        { label: "Funciones directas", value: directFunctions, note: "detalladas expresamente en los actos revisados" },
+        { label: "Por remisión", value: referencedDesignations.length, note: referencedDesignations.map((item) => item.entity).join(", ") }
       ].map((item) => "<div class=\"metric\"><span>" + item.label + "</span><strong>" + item.value + "</strong><small>" + item.note + "</small></div>").join("");
 
       document.querySelector("#oiaDirectory").innerHTML = data.length ? data.map((item) => `
