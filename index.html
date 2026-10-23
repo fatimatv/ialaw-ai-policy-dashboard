@@ -2578,6 +2578,34 @@
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 3 }
       },
       {
+        id: "sunafil",
+        name: "SUNAFIL",
+        longName: "Superintendencia Nacional de Fiscalización Laboral",
+        sector: "Fiscalización laboral",
+        instrument: "Resolución de Consejo Directivo N.° 009-2026-SUNAFIL/PCD",
+        approval: "2026-10-19",
+        publication: "2026-10-19",
+        focus: "Política institucional para el uso seguro, responsable y ético de sistemas basados en IA en las actividades y servicios de fiscalización laboral.",
+        difference: "Destaca por desarrollar de forma expresa los doce principios del Reglamento, con medidas concretas para prevenir sesgos, proteger datos personales, asegurar intervención humana y aplicar salvaguardas proporcionales al riesgo.",
+        evidence: "Resolución aprobatoria y anexo con compromisos explícitos sobre no discriminación, privacidad, derechos fundamentales, autor, seguridad, capacitación, sostenibilidad, supervisión humana, transparencia, rendición de cuentas, ética y estándares de seguridad basados en riesgos.",
+        source: "https://www.gob.pe/institucion/sunafil/normas-legales/8748663-009-2026-sunafil-pcd",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 2, inventory: 1 }
+      },
+      {
+        id: "seman",
+        name: "SEMAN",
+        longName: "Servicio de Mantenimiento del Perú S.A.C.",
+        sector: "Mantenimiento aeronáutico y naval",
+        instrument: "Política Interna E2.4.0.PI1, versión 00, aprobada mediante Acuerdo de Directorio N.° 037-2026",
+        approval: "2026-10-19",
+        publication: "2026-10-22",
+        focus: "Política institucional para el uso responsable, ético, seguro y transparente de IA, orientada a la eficiencia, innovación, productividad y competitividad, con especial cuidado en actividades aeronáuticas.",
+        difference: "Destaca por convertir la supervisión humana, la validación previa de resultados y la protección de información confidencial en responsabilidades operativas para las áreas usuarias y de tecnologías de la información.",
+        evidence: "Alcance obligatorio, funciones del Directorio, Gerencia General, Gerencia Ejecutiva, TIC y áreas usuarias; gestión de riesgos, revisión periódica, reporte de incidentes, protección de datos e información, validación humana, capacitación y mejora continua.",
+        source: "https://www.gob.pe/institucion/seman/informes-publicaciones/8747954-politica-interna-politica-institucional-del-uso-de-la-inteligencia-artificial",
+        scores: { rights: 2, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 1, accountability: 3, copyright: 1, training: 3, sustainability: 1, governance: 3, inventory: 1 }
+      },
+      {
         id: "jne",
         name: "JNE",
         longName: "Jurado Nacional de Elecciones",
@@ -2702,7 +2730,7 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp", "minsa-policy", "jne"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp", "minsa-policy", "sunafil", "seman", "jne"]);
     const state = {
       selected: "igp",
       dateMode: "publication",
