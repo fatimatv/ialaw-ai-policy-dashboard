@@ -2775,6 +2775,18 @@
         detail: "La resolución designa al Jefe de Gestión de Gobierno Digital y remite a la ENIA para la coordinación del gobierno y la gestión de IA, así como el seguimiento de la implementación del Plan de Acción de IA."
       },
       {
+        id: "sunarp-oia",
+        entity: "SUNARP",
+        longName: "Superintendencia Nacional de los Registros Públicos",
+        date: "2026-11-10",
+        person: "Roberto Aldo Salazar Castillo",
+        role: "Analista (e) de Sistemas de la Oficina de Tecnologías de la Información",
+        modality: "En adición a sus funciones; funciones detalladas en la resolución",
+        instrument: "Resolución de la Gerencia General N.° 00175-2026-SUNARP-GG",
+        source: "https://www.gob.pe/institucion/sunarp/normas-legales/8815875-00175-2026-sunarp-gg",
+        detail: "Formula y dirige el Plan de Acción; supervisa la Política, el registro de sistemas, pruebas y riesgos; coordina la evaluación de impacto, reporta periódicamente y actúa como punto de contacto ante la SGTD."
+      },
+      {
         id: "uniadi",
         entity: "UNIADI",
         longName: "Universidad Nacional Intercultural Aimara de Ilave",
@@ -2813,13 +2825,13 @@
     ];
 
     const oiaFunctions = [
-      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference", mininter: "reference", uniadi: "direct", lurigancho: "direct", sunass: "reference" },
-      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference", mininter: "none", uniadi: "none", lurigancho: "direct", sunass: "reference" },
-      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none", sineace: "reference", ipen: "reference", mininter: "none", uniadi: "none", lurigancho: "none", sunass: "reference" },
-      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "none", ipen: "reference", mininter: "reference", uniadi: "direct", lurigancho: "direct", sunass: "reference" },
-      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "reference", ipen: "none", mininter: "none", uniadi: "none", lurigancho: "direct", sunass: "none" },
-      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none", sineace: "none", ipen: "none", mininter: "none", uniadi: "none", lurigancho: "none", sunass: "none" },
-      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "none", ipen: "none", mininter: "none", uniadi: "none", lurigancho: "none", sunass: "none" }
+      { label: "Coordinar el gobierno y la gestión de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference", mininter: "reference", "sunarp-oia": "direct", uniadi: "direct", lurigancho: "direct", sunass: "reference" },
+      { label: "Formular o proponer el Plan de Acción de IA", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "reference", ipen: "reference", mininter: "none", "sunarp-oia": "direct", uniadi: "none", lurigancho: "direct", sunass: "reference" },
+      { label: "Identificar, diseñar o planificar casos de uso", reniec: "reference", minsa: "none", smv: "none", pronatel: "reference", proinversion: "none", sineace: "reference", ipen: "reference", mininter: "none", "sunarp-oia": "none", uniadi: "none", lurigancho: "none", sunass: "reference" },
+      { label: "Hacer seguimiento e informar al Comité de Gobierno y Transformación Digital", reniec: "reference", minsa: "none", smv: "direct", pronatel: "reference", proinversion: "reference", sineace: "none", ipen: "reference", mininter: "reference", "sunarp-oia": "direct", uniadi: "direct", lurigancho: "direct", sunass: "reference" },
+      { label: "Coordinar unidades especializadas para el Plan de Acción", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "reference", ipen: "none", mininter: "none", "sunarp-oia": "direct", uniadi: "none", lurigancho: "direct", sunass: "none" },
+      { label: "Supervisar modelos de IA de alto riesgo", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "none", sineace: "none", ipen: "none", mininter: "none", "sunarp-oia": "none", uniadi: "none", lurigancho: "none", sunass: "none" },
+      { label: "Registrar avances en la Plataforma de Cumplimiento Digital", reniec: "none", minsa: "none", smv: "direct", pronatel: "none", proinversion: "reference", sineace: "none", ipen: "none", mininter: "none", "sunarp-oia": "none", uniadi: "none", lurigancho: "none", sunass: "none" }
     ];
 
 
@@ -3315,7 +3327,7 @@
       document.querySelector("#oiaInsights").innerHTML = [
         {
           title: "Mayor desarrollo operativo",
-          text: "La SMV es la única resolución revisada que detalla directamente un catálogo operativo: coordinación, Plan de Acción, modelos de alto riesgo, reporte trimestral y registro de avances."
+          text: "SUNARP y SMV son las resoluciones con mayor detalle operativo. SUNARP incorpora Política, Plan de Acción, riesgos, supervisión humana, registro de sistemas, pruebas y reportes; SMV enfatiza modelos de alto riesgo, reporte trimestral y registro de avances."
         },
         {
           title: "Funciones por remisión",
