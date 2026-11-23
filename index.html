@@ -2688,6 +2688,20 @@
         evidence: "El Decreto aprueba la política, exige una adopción centrada en las personas, transparente, segura y con supervisión humana; prevé privacidad, seguridad de la información, gestión de riesgos, prevención de sesgos y discriminación, responsabilidades, seguimiento, mejora y capacitación. La valoración se basa en las disposiciones expresas del Decreto publicado; el anexo de la política no se incluye en el archivo oficial consultado.",
         source: "https://regionancash.gob.pe/decreto_regional.php",
         scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 1, training: 3, sustainability: 1, governance: 3, inventory: 1 }
+      },
+      {
+        id: "sunedu",
+        name: "SUNEDU",
+        longName: "Superintendencia Nacional de Educación Superior Universitaria",
+        sector: "Educación superior y calidad universitaria",
+        instrument: "Resolución del Consejo Directivo N.° 0036-2026-SUNEDU",
+        approval: "2026-11-20",
+        publication: "2026-11-20",
+        focus: "Política institucional de IA para desarrollar, adquirir, implementar, administrar y utilizar sistemas basados en IA de manera segura, responsable, ética, transparente, inclusiva y sostenible en la supervisión de la calidad universitaria.",
+        difference: "Destaca por exigir evaluación de impacto antes de implementar sistemas de alto riesgo y por promover la alineación progresiva con la NTP-ISO/IEC 42001:2025, junto con trazabilidad, auditoría, gestión de incidentes y mecanismos de autorización.",
+        evidence: "Aplicación obligatoria para órganos, personal, practicantes, proveedores y consultores; derechos, dignidad, autonomía, privacidad, no discriminación y protección reforzada de personas vulnerables; riesgos, seguridad, datos, supervisión humana, transparencia, rendición de cuentas, trazabilidad, propiedad intelectual, formación, monitoreo, mejora continua y gobernanza institucional.",
+        source: "https://www.gob.pe/institucion/sunedu/normas-legales/8851003-0036-2026-sunedu-cd",
+        scores: { rights: 3, privacy: 3, human: 3, transparency: 3, risk: 3, bias: 3, accountability: 3, copyright: 3, training: 3, sustainability: 3, governance: 3, inventory: 2 }
       }
     ];
 
@@ -2932,7 +2946,7 @@
     ];
 
     const firstWaveUniverse = 581;
-    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp", "minsa-policy", "amazonas", "sunass-policy", "sunafil", "proinversion-policy", "seman", "conadis", "jne", "ancash"]);
+    const compliantPolicyInstitutionIds = new Set(["indecopi", "onpe", "osinergmin", "onp", "apci", "ceplan", "itp", "sunat", "servir", "sunarp", "ositran", "midis", "smv-policy", "oece", "inacal", "mef", "osinfor", "reniec", "igp", "tc", "bnp", "minsa-policy", "amazonas", "sunass-policy", "sunafil", "proinversion-policy", "seman", "conadis", "jne", "ancash", "sunedu"]);
     const state = {
       selected: "igp",
       dateMode: "publication",
